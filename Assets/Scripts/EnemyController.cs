@@ -33,9 +33,24 @@ public class EnemyController : MonoBehaviour {
 
 	}
 
-	public SequenceResult CompareSequence(List<OrbType> sequence)
+	private void PrintSequence(List<OrbType> seq)
 	{
-		if (sequence.SequenceEqual(this.Sequence))
+		Debug.Log("Start sequence");
+		foreach (OrbType type in seq)
+		{
+			Debug.Log(string.Format("Orb type: {0}", type.Color)); //, type.Symbol));
+		}
+		Debug.Log("End sequence");
+	}
+
+	public SequenceResult CompareSequence(List<Orb> sequence)
+	{
+		List<OrbType> types = sequence.Select(s => s.Type).ToList();
+
+		PrintSequence(types);
+		PrintSequence(this.Sequence);
+
+		if (types.SequenceEqual(this.Sequence))
 		{
 			return SequenceResult.HIT;
 		}
@@ -48,8 +63,8 @@ public class EnemyController : MonoBehaviour {
 	OrbType GetRandomOrb()
 	{
 		OrbType result = new OrbType();
-		result.Color = OrbColor.BLUE;
-		result.Symbol = OrbSymbol.TRIANGLE;
+		result.Color = OrbColorEnum.BLUE;
+//		result.Symbol = OrbSymbolEnum.SQUARE;
 
 		return result;
 	}

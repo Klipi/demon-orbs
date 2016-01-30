@@ -21,13 +21,17 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 	[SerializeField]
 	private float					colorTweenDuration = 0.3f;
 
-	public OrbType Type;
+	public OrbType 					Type;
+
+	public OrbPosition 				Position;
+
+	private bool 					isSelected = false;
 
 	// Use this for initialization
 	void Start () {
 		Type = new OrbType();
-		Type.Color = OrbColor.BLUE;
-		Type.Symbol = OrbSymbol.SQUARE;
+		Type.Color = OrbColorEnum.BLUE;
+//		Type.Symbol = OrbSymbolEnum.SQUARE;
 
 		sequenceController.OnSequenceEnd += SequenceController_OnSequenceEnd;;
 	}
@@ -35,6 +39,7 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 	void SequenceController_OnSequenceEnd (object sender, System.EventArgs e)
 	{
 		this.UnHighlightOrb();
+		isSelected = false;
 	}
 	
 	// Update is called once per frame
@@ -45,7 +50,6 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 	void UnHighlightOrb()
 	{
 		this.GetComponent<RawImage>().DOColor(unselectedColor, colorTweenDuration);
-
 	}
 
 	void HighlightOrb()
@@ -56,9 +60,13 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 
 	void TrySelect()
 	{
-		bool success = sequenceController.SelectOrb(this.Type);
+		if (isSelected)
+			return;
+
+		bool success = sequenceController.SelectOrb(this.Type, this.Position);
 		if (success)
 		{
+			isSelected = true;
 			this.HighlightOrb();
 		}
 	}

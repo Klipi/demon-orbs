@@ -5,7 +5,20 @@ using System;
 
 public class LevelLogic : MonoBehaviour 
 {
+	private static 	LevelLogic 						_instance;
 
+	public static	LevelLogic 						Instance
+	{
+		get
+		{
+			if (_instance == null)
+			{
+				Debug.LogWarning("No LevelLogic object in scene!");
+			}
+
+			return _instance;
+		}
+	}
 
 	[SerializeField]
 	private GameObject								enemyPrefab;
@@ -13,6 +26,20 @@ public class LevelLogic : MonoBehaviour
 	private LevelState								currentState;
 
 	public 	LevelConfig 							LevelConfig 	= LevelConfig.DefaultConfig;
+
+	private EnemyController							currentEnemy;
+
+	void Awake()
+	{
+		if (_instance == null)
+		{
+			_instance = this;
+		}
+		else
+		{
+			Debug.LogWarning("Multiple LevelLogic objects in scene!");
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -26,10 +53,15 @@ public class LevelLogic : MonoBehaviour
 
 	void SpawnEnemy()
 	{
+		if (currentEnemy != null)
+		{
+			Debug.LogWarning("Trying to spawn a second enemy to scene!");
+		}
+
 		int enemyIndex = UnityEngine.Random.Range(0, currentState.EnemiesInLevel.Count);
 		EnemyConfig enemyToSpawn = currentState.EnemiesInLevel[enemyIndex];
 
-		EnemyController enemyController = GameObject.Instantiate(enemyPrefab).GetComponent<EnemyController>();
+		currentEnemy = GameObject.Instantiate(enemyPrefab).GetComponent<EnemyController>();
 
 		switch (enemyToSpawn.Type)
 		{
@@ -42,9 +74,9 @@ public class LevelLogic : MonoBehaviour
 				break;
 		}
 
-		enemyController.SequenceLength = enemyToSpawn.SequenceLength;
-		enemyController.OnSequenceChanged += EnemyController_OnSequenceChanged;
-		enemyController.EnterGameArea();
+		currentEnemy.SequenceLength = enemyToSpawn.SequenceLength;
+		currentEnemy.OnSequenceChanged += EnemyController_OnSequenceChanged;
+		currentEnemy.EnterGameArea();
 	}
 
 	void EnemyController_OnSequenceChanged (object sender, SequenceEventArgs e)
@@ -57,5 +89,10 @@ public class LevelLogic : MonoBehaviour
 		currentState = new LevelState(this.LevelConfig);
 
 		this.SpawnEnemy();
+	}
+
+	public void VerifySequence(List<Orb> sequence)
+	{
+		Debug.Log (string.Format("Verification result: {0}", currentEnemy.CompareSequence(sequence)));
 	}
 }
