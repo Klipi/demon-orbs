@@ -19,9 +19,23 @@ public class EnemyController : MonoBehaviour {
 	public delegate void SequenceChangeHandler(object sender, SequenceEventArgs e);
 	public event SequenceChangeHandler OnSequenceChanged;
 
-	public List<OrbType> 	Sequence;
+	private int 			_currentRound = -1;
 
-	public int				SequenceLength;
+	public List<OrbType> 	CurrentSequence;
+
+	public int				CurrentSequenceLength
+	{
+		get
+		{
+			return Config.Rounds[_currentRound].SequenceLength;
+		}
+	}
+
+	public EnemyConfig Config
+	{
+		get;
+		set;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -43,44 +57,55 @@ public class EnemyController : MonoBehaviour {
 		Debug.Log("End sequence");
 	}
 
-	public SequenceResult CompareSequence(List<Orb> sequence)
+	public SequenceResult CompareSequence(List<OrbController> sequence)
 	{
 		List<OrbType> types = sequence.Select(s => s.Type).ToList();
 
-		PrintSequence(types);
-		PrintSequence(this.Sequence);
+		if (types.Count != CurrentSequence.Count)
+		{
+		 	return SequenceResult.MISS;
+		}
 
-		if (types.SequenceEqual(this.Sequence))
+		for (int i = 0; i < types.Count; i++)
 		{
-			return SequenceResult.HIT;
+			if (types[i].Color != CurrentSequence[i].Color)
+			{
+				return SequenceResult.MISS;
+			}
 		}
-		else
-		{
-			return SequenceResult.MISS;
-		}
+
+		GenerateNewSequence();
+		return SequenceResult.HIT;
 	} 
 
 	OrbType GetRandomOrb()
 	{
-		OrbType result = new OrbType();
-		result.Color = OrbColorEnum.BLUE;
-//		result.Symbol = OrbSymbolEnum.SQUARE;
+		OrbType result = OrbType.GetRandomOrbType();
 
 		return result;
 	}
 
 	void GenerateNewSequence()
 	{
-		Sequence = new List<OrbType>();
-		for (int i = 0; i < SequenceLength; i++)
+		_currentRound++;
+
+		if (Config.Rounds.Count() <= _currentRound)
 		{
-			Sequence.Add(this.GetRandomOrb());
+			Debug.Log("TODO: Trigger ending");
+			return;
+		}
+
+		CurrentSequence = new List<OrbType>();
+		for (int i = 0; i < CurrentSequenceLength; i++)
+		{
+			CurrentSequence.Add(this.GetRandomOrb());
+			Debug.Log(CurrentSequence[i].Color);
 		}
 
 
 		if (OnSequenceChanged != null)
 		{
-			OnSequenceChanged.Invoke(this, new SequenceEventArgs(this.Sequence));
+			OnSequenceChanged.Invoke(this, new SequenceEventArgs(this.CurrentSequence));
 		}
 	}
 
@@ -92,7 +117,7 @@ public class EnemyController : MonoBehaviour {
 
 		this.GenerateNewSequence();
 
-		Debug.Log(string.Format("Generated a {0} orb long sequence", this.Sequence.Count));
+		Debug.Log(string.Format("Generated a {0} orb long sequence", this.CurrentSequence.Count));
 	}
 
 }

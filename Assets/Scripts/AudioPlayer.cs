@@ -4,9 +4,13 @@ using System.Collections.Generic;
 
 public enum SoundType
 {
+	HIT,
+
 	DRAG,
 
-	SELECT
+	SELECT,
+
+	MISS
 }
 
 public class AudioPlayer : MonoBehaviour {
@@ -32,6 +36,12 @@ public class AudioPlayer : MonoBehaviour {
 	[SerializeField]
 	private AudioClip	dragSound;
 
+	[SerializeField]
+	private AudioClip[] 	hitSounds;
+
+	[SerializeField]
+	private AudioClip[] missSounds;
+
 	// Use this for initialization
 	void Awake () {
 		if (_instance == null)
@@ -49,15 +59,26 @@ public class AudioPlayer : MonoBehaviour {
 	
 	}
 
+	private AudioClip SelectRandom(AudioClip[] clipArray)
+	{
+		int index = Random.Range(0, clipArray.Length);
+		return clipArray[index];		
+	}
+
 	private AudioClip GetSoundForType(SoundType type)
 	{
+		int index;
 		switch (type)
 		{
 			case SoundType.SELECT:
-				int index = Random.Range(0, selectSounds.Length);
-				return selectSounds[index];
+				return SelectRandom(selectSounds);
 			case SoundType.DRAG:
 				return dragSound;
+			case SoundType.HIT:
+				return SelectRandom(hitSounds);
+			case SoundType.MISS:
+				return SelectRandom(missSounds);
+		
 			default:
 				Debug.LogWarning(string.Format("No sound set for type {0}", type));
 				return new AudioClip();

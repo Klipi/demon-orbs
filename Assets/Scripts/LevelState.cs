@@ -4,16 +4,28 @@ using System.Collections.Generic;
 
 public class LevelState
 {
-	public int EnemiesDefeated;
-	public int EnemiesToDefeat;
+	public float TimeLeft
+	{
+		get;
+		set;
+	}
 
-	public List<EnemyConfig> EnemiesInLevel;
+	public EnemyConfig Enemy;
+
+	private int _currentRound = 0;
+
+	public Round CurrentRound
+	{
+		get
+		{
+			return Enemy.Rounds[_currentRound];
+		}
+	}
 
 	public LevelState(LevelConfig config)
 	{
-		EnemiesDefeated = 0;
-		EnemiesToDefeat = config.EnemiesToDefeat;
-		EnemiesInLevel = config.Enemies;
+		TimeLeft = config.Enemy.InitialTime;
+		Enemy = config.Enemy;
 	}
 }
 

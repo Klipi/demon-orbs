@@ -4,21 +4,43 @@ using System.Collections.Generic;
 
 public enum EnemyType
 {
+	DRAGON,
+	LIZARD,
 	IMP
+}
+
+public class Round
+{
+	public float TimeBoost;
+	public int SequenceLength;
+
+	public Round(float time, int sequenceLength)
+	{
+		TimeBoost = time;
+		SequenceLength = sequenceLength;
+	}
 }
 
 public class EnemyConfig
 {
 	public EnemyType 	Type;
-	public int			SequenceLength;
+	public List<Round>	Rounds;
+	public float		InitialTime;
 
 	public static EnemyConfig DefaultEnemy
 	{
 		get
-		{
+		{	
+			List<Round> rounds = new List<Round>();
+			rounds.Add(new Round(2f, 3));
+			rounds.Add(new Round(2f, 4));
+			rounds.Add(new Round(2f, 5));
+
 			EnemyConfig result = new EnemyConfig();
-			result.Type = EnemyType.IMP;
-			result.SequenceLength = 4;
+			result.Type = EnemyType.DRAGON;
+			result.Rounds = rounds;
+
+			result.InitialTime = 5f;
 
 			return result;
 		}

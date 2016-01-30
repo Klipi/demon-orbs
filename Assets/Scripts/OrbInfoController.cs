@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class OrbInfoController : MonoBehaviour {
 
@@ -61,6 +62,9 @@ public class OrbInfoController : MonoBehaviour {
 			newOrb.transform.SetParent(this.transform);
 			newOrb.transform.localScale = Vector3.one;
 
+			Sprite sprite = Utils.LoadSprite(orb.GetResourcePath(false));
+
+			newOrb.GetComponent<Image>().sprite = sprite;
 		}
 	}
 

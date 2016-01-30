@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerUpHandler
 {
@@ -21,7 +22,23 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 	[SerializeField]
 	private float					colorTweenDuration = 0.3f;
 
-	public OrbType 					Type;
+	private OrbType					_type;
+
+	[SerializeField]
+	private List<OrbController>		neighbors;
+
+	public OrbType 					Type
+	{
+		get
+		{
+			return _type;
+		}
+		set
+		{
+			_type = value;
+			ChangeSprite();
+		}
+	}
 
 	public OrbPosition 				Position;
 
@@ -29,11 +46,12 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 
 	// Use this for initialization
 	void Start () {
-		Type = new OrbType();
-		Type.Color = OrbColorEnum.BLUE;
-//		Type.Symbol = OrbSymbolEnum.SQUARE;
+		sequenceController.OnSequenceEnd += SequenceController_OnSequenceEnd;
+	}
 
-		sequenceController.OnSequenceEnd += SequenceController_OnSequenceEnd;;
+	private void ChangeSprite()
+	{
+		UnHighlightOrb();
 	}
 
 	void SequenceController_OnSequenceEnd (object sender, System.EventArgs e)
@@ -49,13 +67,23 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 
 	void UnHighlightOrb()
 	{
-		this.GetComponent<RawImage>().DOColor(unselectedColor, colorTweenDuration);
+//		this.GetComponent<RawImage>().DOColor(unselectedColor, colorTweenDuration);
+		Texture texture = (Texture)Resources.Load(Type.GetResourcePath(false));
+		this.GetComponent<RawImage>().texture = texture;
 	}
 
 	void HighlightOrb()
 	{
-		this.GetComponent<RawImage>().DOColor(selectedColor, colorTweenDuration);
+		// this.GetComponent<RawImage>().DOColor(selectedColor, colorTweenDuration);
+
+		Texture texture = (Texture)Resources.Load(Type.GetResourcePath(true));
+		this.GetComponent<RawImage>().texture = texture;
 		AudioPlayer.Instance.PlaySound(SoundType.SELECT);
+	}
+
+	public List<OrbController> GetNeighbors()
+	{
+		return neighbors;
 	}
 
 	void TrySelect()
@@ -63,7 +91,7 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 		if (isSelected)
 			return;
 
-		bool success = sequenceController.SelectOrb(this.Type, this.Position);
+		bool success = sequenceController.SelectOrb(this);
 		if (success)
 		{
 			isSelected = true;
