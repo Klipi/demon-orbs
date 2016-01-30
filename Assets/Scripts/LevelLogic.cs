@@ -29,6 +29,8 @@ public class LevelLogic : MonoBehaviour
 
 	private EnemyController							currentEnemy;
 
+	private bool 									playing			= true;
+
 	void Awake()
 	{
 		if (_instance == null)
@@ -51,9 +53,10 @@ public class LevelLogic : MonoBehaviour
 		currentState.TimeLeft -= Time.deltaTime;
 
 		TimeHandler.Instance.SetRemainingTime(currentState.TimeLeft);
-		if (currentState.TimeLeft < 0f)
+		if (playing && currentState.TimeLeft < 0f)
 		{
-			
+			playing = false;
+			AudioPlayer.Instance.PlaySound(SoundType.GAME_OVER);
 		}
 	}
 

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TimeHandler : MonoBehaviour
 {
 	private static TimeHandler _instance;
-
+	
 	public static TimeHandler Instance
 	{
 		get
@@ -21,10 +21,25 @@ public class TimeHandler : MonoBehaviour
 		}
 	}
 
+	[SerializeField]
+	private RectTransform timeBarFill;
+
+	[SerializeField]
+	private float endTopValue = 620f;
+
+	public float InitialTimeLeft = -1f;
 
 	public void SetRemainingTime(float timeLeft)
 	{
-		GetComponent<Text>().text = timeLeft.ToString();
+		if (Mathf.Approximately(InitialTimeLeft, -1f))
+		{
+			InitialTimeLeft = timeLeft;
+		}
+
+		float topValue = Mathf.Lerp(-620f, 0f, timeLeft/InitialTimeLeft);
+
+
+		timeBarFill.offsetMax = new Vector2(0f, topValue);
 	}
 
 	private void Awake()
