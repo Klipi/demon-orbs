@@ -43,3 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ParticleGlow
+    uniqueID: 826979689
+    locked: 0
+  - name: Orbs
+    uniqueID: 3284338291
+    locked: 0

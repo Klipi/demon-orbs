@@ -65,11 +65,36 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 	
 	}
 
+	private Color GetColorForType(OrbType type)
+	{
+		switch (type.Color)
+		{
+			case OrbColorEnum.BLACK:
+				return Color.black;
+			case OrbColorEnum.BLUE:
+				return Color.blue;
+			case OrbColorEnum.GREEN:
+				return Color.green;
+			case OrbColorEnum.RED:
+				return Color.red;
+			case OrbColorEnum.WHITE:
+				return Color.white;
+			case OrbColorEnum.YELLOW:
+				return Color.yellow;
+			default:
+				Debug.LogWarning(string.Format("Color not found {0}", type.Color));
+				return Color.white;
+		}
+	}
+
 	void UnHighlightOrb()
 	{
 //		this.GetComponent<RawImage>().DOColor(unselectedColor, colorTweenDuration);
 		Texture texture = (Texture)Resources.Load(Type.GetResourcePath(false));
 		this.GetComponent<RawImage>().texture = texture;
+		ParticleSystem ps = this.GetComponent<ParticleSystem>();
+		ps.Stop();
+		ps.Clear();
 	}
 
 	void HighlightOrb()
@@ -79,6 +104,13 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 		Texture texture = (Texture)Resources.Load(Type.GetResourcePath(true));
 		this.GetComponent<RawImage>().texture = texture;
 		AudioPlayer.Instance.PlaySound(SoundType.SELECT);
+		ParticleSystem ps = this.GetComponent<ParticleSystem>();
+		ps.startColor = GetColorForType(Type);
+		ps.startLifetime = 3f;
+		ParticleSystem.EmissionModule emission = ps.emission;
+		emission.rate = new ParticleSystem.MinMaxCurve(10f, AnimationCurve.Linear(0f, 1f, 3f, 0.5f));
+		ps.Play();
+		ps.Emit(5);
 	}
 
 	public List<OrbController> GetNeighbors()

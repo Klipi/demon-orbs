@@ -35,9 +35,11 @@ public class InputHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
     	if (dragging)
     	{
+    		Vector3 oldpos = mousePathRenderer.position;
 			Vector3 newpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			newpos.z = 0f;
     		mousePathRenderer.position = newpos;
+    		mousePathRenderer.GetComponent<ParticleSystem>().Emit(Mathf.RoundToInt((oldpos - newpos).magnitude * 20f));
     	}
     }
 
