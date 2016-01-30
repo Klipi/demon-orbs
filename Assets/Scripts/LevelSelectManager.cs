@@ -29,7 +29,7 @@ public class LevelSelectManager : MonoBehaviour {
         LevelSelectCamera cam = m_camera.GetComponent<LevelSelectCamera>();
 
         //Debug
-        cam.MinY = 0.0f;
+        cam.MinY = 8.0f;
         if (m_currentLevel + 1 <= levels.Length-1)
         {
             cam.MaxY = levels[m_currentLevel + 1].transform.position.y;
@@ -40,7 +40,7 @@ public class LevelSelectManager : MonoBehaviour {
         }
 
         Vector3 pos = m_camera.transform.position;
-        pos.y = levels[m_currentLevel].transform.position.y;
+        pos.y = levels[m_currentLevel].transform.position.y+8;
         m_camera.transform.position = pos;
     }
 	
