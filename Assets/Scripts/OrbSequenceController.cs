@@ -7,6 +7,11 @@ public class OrbSequenceController : MonoBehaviour {
 	
 	private List<OrbType> currentSequence;
 
+	public delegate void SequenceEndHandler(object sender, EventArgs e);
+
+	public event SequenceEndHandler OnSequenceEnd;
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -43,6 +48,11 @@ public class OrbSequenceController : MonoBehaviour {
 	{
 		CheckSequence(currentSequence);
 		currentSequence = null;
+
+		if (OnSequenceEnd != null)
+		{
+			OnSequenceEnd.Invoke(this, EventArgs.Empty);
+		}
 	}
 
 	private void CheckSequence(List<OrbType> sequence)
