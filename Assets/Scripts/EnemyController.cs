@@ -43,28 +43,33 @@ public class EnemyController : MonoBehaviour {
 		Debug.Log("End sequence");
 	}
 
-	public SequenceResult CompareSequence(List<Orb> sequence)
+	public SequenceResult CompareSequence(List<OrbController> sequence)
 	{
 		List<OrbType> types = sequence.Select(s => s.Type).ToList();
 
-		PrintSequence(types);
-		PrintSequence(this.Sequence);
+		if (types.Count != Sequence.Count)
+		{
+			AudioPlayer.Instance.PlaySound(SoundType.MISS);
+		 	return SequenceResult.MISS;
+		}
 
-		if (types.SequenceEqual(this.Sequence))
+		for (int i = 0; i < types.Count; i++)
 		{
-			return SequenceResult.HIT;
+			if (types[i].Color != Sequence[i].Color)
+			{
+				AudioPlayer.Instance.PlaySound(SoundType.HIT);
+				return SequenceResult.MISS;
+			}
 		}
-		else
-		{
-			return SequenceResult.MISS;
-		}
+
+		GenerateNewSequence();
+		AudioPlayer.Instance.PlaySound(SoundType.HIT);
+		return SequenceResult.HIT;
 	} 
 
 	OrbType GetRandomOrb()
 	{
-		OrbType result = new OrbType();
-		result.Color = OrbColorEnum.BLUE;
-//		result.Symbol = OrbSymbolEnum.SQUARE;
+		OrbType result = OrbType.GetRandomOrbType();
 
 		return result;
 	}
@@ -75,6 +80,7 @@ public class EnemyController : MonoBehaviour {
 		for (int i = 0; i < SequenceLength; i++)
 		{
 			Sequence.Add(this.GetRandomOrb());
+			Debug.Log(Sequence[i].Color);
 		}
 
 
