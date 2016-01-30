@@ -11,6 +11,20 @@ public class OrbSequenceController : MonoBehaviour {
 
 	public event SequenceEndHandler OnSequenceEnd;
 
+	private static OrbSequenceController _instance;
+
+	public static OrbSequenceController Instance
+	{
+		get
+		{
+			if (_instance == null)
+			{
+				Debug.LogWarning("No instance found for OrbSequenceController");
+			}
+
+			return _instance;
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -61,4 +75,31 @@ public class OrbSequenceController : MonoBehaviour {
 		Debug.Log(string.Format("Got {0} orbs in sequence", sequence.Count));
 		LevelLogic.Instance.VerifySequence(sequence);
 	}
+
+	private List<OrbController> GetOrbs()
+	{
+		List<OrbController> orbs = new List<OrbController>();
+		for (int i = 0; i < transform.childCount; i++)
+		{
+			OrbController orb = transform.GetChild(i).GetComponent<OrbController>();
+			if (orb != null)
+				orbs.Add(orb);
+		}
+
+		return orbs;
+	}
+
+	public void GenerateNewColors(List<OrbType> sequence)
+	{
+		List<OrbController> orbs = GetOrbs();
+
+		int initialIndex = UnityEngine.Random.Range(0, orbs.Count);
+
+		OrbController initialOrb = orbs[initialIndex];
+
+		initialOrb.Type = sequence[0];
+
+		List<OrbController> neighbors = initialOrb.GetNeighbors();
+	}
+
 }

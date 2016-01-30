@@ -82,6 +82,7 @@ public class LevelLogic : MonoBehaviour
 	void EnemyController_OnSequenceChanged (object sender, SequenceEventArgs e)
 	{
 		OrbInfoController.Instance.DrawNewOrbs(e.Sequence);
+		OrbSequenceController.Instance.GenerateNewColors(e.Sequence);
 	}
 
 	void Initialize()

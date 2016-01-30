@@ -47,24 +47,25 @@ public class EnemyController : MonoBehaviour {
 	{
 		List<OrbType> types = sequence.Select(s => s.Type).ToList();
 
-		PrintSequence(types);
-		PrintSequence(this.Sequence);
+		if (types.Count != Sequence.Count)
+		{
+		 	return SequenceResult.MISS;
+		}
 
-		if (types.SequenceEqual(this.Sequence))
+		for (int i = 0; i < types.Count; i++)
 		{
-			return SequenceResult.HIT;
+			if (types[i].Color != Sequence[i].Color)
+			{
+				return SequenceResult.MISS;
+			}
 		}
-		else
-		{
-			return SequenceResult.MISS;
-		}
+
+		return SequenceResult.HIT;
 	} 
 
 	OrbType GetRandomOrb()
 	{
-		OrbType result = new OrbType();
-		result.Color = OrbColorEnum.BLUE;
-//		result.Symbol = OrbSymbolEnum.SQUARE;
+		OrbType result = new OrbType(OrbColorEnum.BLUE);
 
 		return result;
 	}

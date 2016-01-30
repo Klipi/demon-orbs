@@ -2,10 +2,12 @@
 
 public enum OrbColorEnum
 {
-	RED,
+	BLACK,
 	BLUE,
-	YELLOW,
-	GREEN
+	GREEN,
+	RED,
+	WHITE,
+	YELLOW
 }
 
 public enum OrbSymbolEnum
@@ -38,41 +40,32 @@ public enum DirectionEnum
 }
 
 [Serializable]
-public class OrbType : IEquatable<OrbType>
+public class OrbType
 {
 	public OrbColorEnum Color;
 //	public OrbSymbolEnum Symbol;
 
-	public static bool operator ==(OrbType left, OrbType right)
+	public OrbType(OrbColorEnum color)
 	{
-		return left.Color == right.Color; // && left.Symbol == right.Symbol;
+		Color = color;
 	}
-
-	public static bool operator !=(OrbType left, OrbType right)
-	{
-		return !(left == right);
-	}
-
-	public bool Equals(OrbType other)
-	{
-		return other == this;
-	}
-
-	public override int GetHashCode()
-    {
-        int hashProductColor = Color.GetHashCode();
-//        int hashProductSymbol = Symbol.GetHashCode();
-        return hashProductColor; //^ hashProductSymbol;
-    }
 
     public OrbType GetRandomOrbType()
     {
   		OrbColorEnum[] values = (OrbColorEnum[]) Enum.GetValues(typeof(OrbColorEnum));
-		OrbType result = new OrbType();
-		result.Color = values[new Random().Next(0,values.Length)];
+		OrbType result = new OrbType(values[new Random().Next(0,values.Length)]);
 
   		return result;
 	}    
+
+	public string GetResourceName(bool active)
+	{
+		string colorName = this.Color.ToString().ToLower();
+		string capitalized = char.ToUpper(colorName[0]) + colorName.Substring(1);
+
+		return string.Format("OrbSprites/Orb_{0}_{1}", capitalized, active ? "Active" : "Inactive");
+
+	}
 }
 
 [Serializable]
