@@ -62,8 +62,7 @@ public class OrbInfoController : MonoBehaviour {
 			newOrb.transform.SetParent(this.transform);
 			newOrb.transform.localScale = Vector3.one;
 
-			Texture2D tex = (Texture2D)Resources.Load(orb.GetResourceName(false));
-			Sprite sprite = Sprite.Create(tex, new Rect(0f, 0f, tex.width, tex.height), Vector2.one/2f);
+			Sprite sprite = Utils.LoadSprite(orb.GetResourcePath(false));
 
 			newOrb.GetComponent<Image>().sprite = sprite;
 		}

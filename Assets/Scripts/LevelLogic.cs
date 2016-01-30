@@ -29,6 +29,8 @@ public class LevelLogic : MonoBehaviour
 
 	private EnemyController							currentEnemy;
 
+	private bool 									playing			= true;
+
 	void Awake()
 	{
 		if (_instance == null)
@@ -48,7 +50,14 @@ public class LevelLogic : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-	
+		currentState.TimeLeft -= Time.deltaTime;
+
+		TimeHandler.Instance.SetRemainingTime(currentState.TimeLeft);
+		if (playing && currentState.TimeLeft < 0f)
+		{
+			playing = false;
+			AudioPlayer.Instance.PlaySound(SoundType.GAME_OVER);
+		}
 	}
 
 	void SpawnEnemy()
@@ -58,23 +67,30 @@ public class LevelLogic : MonoBehaviour
 			Debug.LogWarning("Trying to spawn a second enemy to scene!");
 		}
 
-		int enemyIndex = UnityEngine.Random.Range(0, currentState.EnemiesInLevel.Count);
-		EnemyConfig enemyToSpawn = currentState.EnemiesInLevel[enemyIndex];
+		EnemyConfig enemyToSpawn = currentState.Enemy;
 
 		currentEnemy = GameObject.Instantiate(enemyPrefab).GetComponent<EnemyController>();
 
 		switch (enemyToSpawn.Type)
 		{
+			case EnemyType.DRAGON:
+				Debug.Log("Spawning Dragon");
+				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_01");
+				break;
+			case EnemyType.LIZARD:
+				Debug.Log("Spawning Lizard");
+				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_02");
+				break;
 			case EnemyType.IMP:
-				Debug.Log("Spawning Imp");
-				// TODO: Set sprite
+				Debug.Log("Spawning Imp Boss");
+				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/DemonBlob");
 				break;
 			default:
 				Debug.LogWarning(string.Format("Couldn't find enemy type {0}", enemyToSpawn.Type));
 				break;
 		}
 
-		currentEnemy.SequenceLength = enemyToSpawn.SequenceLength;
+		currentEnemy.Config = enemyToSpawn;
 		currentEnemy.OnSequenceChanged += EnemyController_OnSequenceChanged;
 		currentEnemy.EnterGameArea();
 	}
@@ -92,8 +108,21 @@ public class LevelLogic : MonoBehaviour
 		this.SpawnEnemy();
 	}
 
+	void AddTimeToTimer()
+	{
+		currentState.TimeLeft += currentState.CurrentRound.TimeBoost;
+	}
+
 	public void VerifySequence(List<OrbController> sequence)
 	{
-		Debug.Log (string.Format("Verification result: {0}", currentEnemy.CompareSequence(sequence)));
+		SequenceResult res = currentEnemy.CompareSequence(sequence);
+		Debug.Log (string.Format("Verification result: {0}", res));
+
+		if (res == SequenceResult.HIT)
+		{
+			AddTimeToTimer();	
+		}
+		AudioPlayer.Instance.PlaySound(res == SequenceResult.HIT ? SoundType.HIT : SoundType.MISS);
+
 	}
 }

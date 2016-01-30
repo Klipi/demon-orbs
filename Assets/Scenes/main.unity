@@ -140,7 +140,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 2773c365001b54eeb841fe33d1e299b7, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: f97429c48094f4ae091294608d1332c2, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1963,7 +1963,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 048931ce2e55e4a2f993dee5586d9638, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2128,6 +2128,7 @@ RectTransform:
   - {fileID: 956829737}
   - {fileID: 1562173843}
   - {fileID: 2020275604}
+  - {fileID: 1959303568}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -2190,7 +2191,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 048931ce2e55e4a2f993dee5586d9638, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2364,7 +2365,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 9e3f191f7e8ab4a009160ad610c6c2a4, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2500,7 +2501,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 9e3f191f7e8ab4a009160ad610c6c2a4, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2632,7 +2633,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: f97429c48094f4ae091294608d1332c2, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2764,7 +2765,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 048931ce2e55e4a2f993dee5586d9638, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2897,7 +2898,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 048931ce2e55e4a2f993dee5586d9638, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3029,7 +3030,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 9e3f191f7e8ab4a009160ad610c6c2a4, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3233,6 +3234,10 @@ Prefab:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11423196, guid: 6f9e8c0755518413ebe1fc344c7c2d1d, type: 2}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f9e8c0755518413ebe1fc344c7c2d1d, type: 2}
   m_IsPrefabParent: 0
@@ -3291,7 +3296,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: f97429c48094f4ae091294608d1332c2, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3590,7 +3595,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: b9ecdfd4498e348768259407c8ca008b, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3667,6 +3672,73 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1106694967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1106694968}
+  - 222: {fileID: 1106694970}
+  - 114: {fileID: 1106694969}
+  m_Layer: 5
+  m_Name: Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1106694968
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106694967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1959303568}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1106694969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106694967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 2a667dce3f59e42a38058eac3eae8d23, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1106694970
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106694967}
 --- !u!1 &1131855846
 GameObject:
   m_ObjectHideFlags: 0
@@ -3722,7 +3794,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 9e3f191f7e8ab4a009160ad610c6c2a4, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -4021,7 +4093,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: f97429c48094f4ae091294608d1332c2, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -4240,7 +4312,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 2773c365001b54eeb841fe33d1e299b7, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -4459,6 +4531,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1562173842}
+--- !u!1 &1602571823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1602571824}
+  - 222: {fileID: 1602571827}
+  - 114: {fileID: 1602571825}
+  m_Layer: 5
+  m_Name: TimeBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1602571824
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602571823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1959303568}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1602571825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602571823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 0e8647116033847b68be359581873ca4, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1602571827
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602571823}
 --- !u!1 &1647396574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4499,30 +4638,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectSounds:
-  - {fileID: 8300000, guid: f3be407abf77a40daaeac49b5affd8a5, type: 3}
-  - {fileID: 8300000, guid: 2f2887abcacbe4fc7ac32c9dfeeef773, type: 3}
-  - {fileID: 8300000, guid: a825c5870b00f41bf90951e2f0d82c11, type: 3}
-  - {fileID: 8300000, guid: eb1e88d8d99994fd5bd84053751c9aee, type: 3}
-  - {fileID: 8300000, guid: 370aa73805b564e218b2dfb8de9455d3, type: 3}
-  - {fileID: 8300000, guid: 043d1b3d2fb9b4906985a5532d54f151, type: 3}
-  - {fileID: 8300000, guid: bcb7691966e124530921e224b90a5a3e, type: 3}
-  - {fileID: 8300000, guid: 09f3212723ef0496c9b11b5470d1a477, type: 3}
-  - {fileID: 8300000, guid: 02327cdcfee834edaafabe74bdeb833d, type: 3}
-  - {fileID: 8300000, guid: 3d6c36fa5831345a8b356f3ac3c339c1, type: 3}
-  - {fileID: 8300000, guid: 29458135499334d3db91012899a3bc2e, type: 3}
-  dragSound: {fileID: 8300000, guid: 563f02153969a4a3a9be8cc25a86f820, type: 3}
-  hitSounds:
   - {fileID: 8300000, guid: ce039f2d1c5974d48b50ce502327bcb2, type: 3}
   - {fileID: 8300000, guid: c4a1fa1ac64b6432398adb5ec9ed8980, type: 3}
   - {fileID: 8300000, guid: 1ec17ecdc3f3f4fdda06923892f07198, type: 3}
   - {fileID: 8300000, guid: 410082bc506904b9d9a9267b9910d001, type: 3}
   - {fileID: 8300000, guid: 51069f11ae3e14b6f8f95827d786d08c, type: 3}
   - {fileID: 8300000, guid: 172681cbc8e0e4bb99546763404447a2, type: 3}
+  dragSound: {fileID: 8300000, guid: 563f02153969a4a3a9be8cc25a86f820, type: 3}
+  hitSounds:
+  - {fileID: 8300000, guid: ca8621b8d3eef4fbb8876e14f342593a, type: 3}
+  - {fileID: 8300000, guid: 239030978ffb74b6dabcc917abe257c4, type: 3}
+  - {fileID: 8300000, guid: 567fdad0d2b2a4218af60bccf0d4d463, type: 3}
+  - {fileID: 8300000, guid: 3b6566c7e019d4496a1d43ade91fe0d0, type: 3}
   missSounds:
   - {fileID: 8300000, guid: 9b25a2129a9034fad8e528f2ad59ea8f, type: 3}
   - {fileID: 8300000, guid: a8b67e5bfb5fb4d94b950cf2e2c2b4ba, type: 3}
   - {fileID: 8300000, guid: 70ebea1e5e96b46a484633fbc9167893, type: 3}
   - {fileID: 8300000, guid: 1415db883958948208f67c696e479993, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 3815a88fe0ea646239f64bb4db4df3e1, type: 3}
 --- !u!1 &1725221561
 GameObject:
   m_ObjectHideFlags: 0
@@ -4578,7 +4711,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 2773c365001b54eeb841fe33d1e299b7, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -4655,6 +4788,62 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1959303567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1959303568}
+  - 222: {fileID: 1959303570}
+  - 114: {fileID: 1959303569}
+  m_Layer: 5
+  m_Name: TimeBarContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1959303568
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1959303567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1106694968}
+  - {fileID: 1602571824}
+  m_Father: {fileID: 139721326}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -430}
+  m_SizeDelta: {x: 100, y: 700}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1959303569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1959303567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93b66546411743e98438ac3d9428ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBarFill: {fileID: 1106694968}
+  endTopValue: 600
+  InitialTimeLeft: -1
+--- !u!222 &1959303570
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1959303567}
 --- !u!1 &2020275603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4830,7 +5019,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: b9ecdfd4498e348768259407c8ca008b, type: 3}
+  m_Texture: {fileID: 2800000, guid: b4082b5d274274c5cb167e3c1eaf6dbf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
