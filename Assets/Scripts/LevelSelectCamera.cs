@@ -2,12 +2,13 @@
 using System.Collections;
 using DG.Tweening;
 
-public class PanCamera : MonoBehaviour {
+public class LevelSelectCamera : MonoBehaviour {
 
     public float touchSensitivity = 0.01f;
-    public float minY = 0;
-    public float maxY = 20;
     public float snapMultiplier = 1.0f;
+
+    private float m_minY = 0;
+    private float m_maxY = 20;
 
     private float m_hardMinY;
     private float m_hardMaxY;
@@ -19,8 +20,8 @@ public class PanCamera : MonoBehaviour {
 	void Start () {
         DOTween.Init();
 
-        m_hardMinY = minY - 1;
-        m_hardMaxY = maxY + 1;
+        m_hardMinY = m_minY - 1;
+        m_hardMaxY = m_maxY + 1;
 
         m_cancelTween = false;
 	}
@@ -40,7 +41,7 @@ public class PanCamera : MonoBehaviour {
             if(delta.y > 0)
             {
                 Debug.Log("Moving down");
-                if(transform.position.y >= maxY)
+                if(transform.position.y >= m_maxY)
                 {
                     m_cancelTween = true;
                 }
@@ -48,7 +49,7 @@ public class PanCamera : MonoBehaviour {
             if(delta.y < 0)
             {
                 Debug.Log("Moving up");
-                if(transform.position.y <= minY)
+                if(transform.position.y <= m_minY)
                 {
                     m_cancelTween = true;
                 }
@@ -69,14 +70,26 @@ public class PanCamera : MonoBehaviour {
         }
         else
         {
-            if (transform.position.y < minY)
+            if (transform.position.y < m_minY)
             {
-                transform.DOMoveY(minY, Mathf.Abs(transform.position.y - minY) * snapMultiplier);
+                transform.DOMoveY(m_minY, Mathf.Abs(transform.position.y - m_minY) * snapMultiplier);
             }
-            else if(transform.position.y > maxY)
+            else if(transform.position.y > m_maxY)
             {
-                transform.DOMoveY(maxY, transform.position.y - maxY * snapMultiplier);
+                transform.DOMoveY(m_maxY, transform.position.y - m_maxY * snapMultiplier);
             } 
         }
 	}
+
+    public float MinY
+    {
+        set { m_minY = value; }
+        get { return m_minY;  }
+    }
+
+    public float MaxY
+    {
+        set { m_maxY = value; }
+        get { return m_maxY; }
+    }
 }
