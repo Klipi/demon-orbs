@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class LevelLogic : MonoBehaviour 
 {
+
+
 	[SerializeField]
 	private GameObject								enemyPrefab;
 
@@ -23,7 +26,7 @@ public class LevelLogic : MonoBehaviour
 
 	void SpawnEnemy()
 	{
-		int enemyIndex = Random.Range(0, currentState.EnemiesInLevel.Count);
+		int enemyIndex = UnityEngine.Random.Range(0, currentState.EnemiesInLevel.Count);
 		EnemyConfig enemyToSpawn = currentState.EnemiesInLevel[enemyIndex];
 
 		EnemyController enemyController = GameObject.Instantiate(enemyPrefab).GetComponent<EnemyController>();
@@ -40,7 +43,13 @@ public class LevelLogic : MonoBehaviour
 		}
 
 		enemyController.SequenceLength = enemyToSpawn.SequenceLength;
+		enemyController.OnSequenceChanged += EnemyController_OnSequenceChanged;
 		enemyController.EnterGameArea();
+	}
+
+	void EnemyController_OnSequenceChanged (object sender, SequenceEventArgs e)
+	{
+		OrbInfoController.Instance.DrawNewOrbs(e.Sequence);
 	}
 
 	void Initialize()

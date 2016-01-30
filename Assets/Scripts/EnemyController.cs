@@ -2,8 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+
+public class SequenceEventArgs : EventArgs
+{
+	public List<OrbType> Sequence;
+
+	public SequenceEventArgs(List<OrbType> seq)
+	{
+		Sequence = seq;
+	}
+}
 
 public class EnemyController : MonoBehaviour {
+
+	public delegate void SequenceChangeHandler(object sender, SequenceEventArgs e);
+	public event SequenceChangeHandler OnSequenceChanged;
 
 	public List<OrbType> 	Sequence;
 
@@ -40,11 +54,6 @@ public class EnemyController : MonoBehaviour {
 		return result;
 	}
 
-	void ShowSequence()
-	{
-		OrbInfoController.Instance.DrawNewOrbs(this.Sequence);
-	}
-
 	void GenerateNewSequence()
 	{
 		Sequence = new List<OrbType>();
@@ -53,7 +62,11 @@ public class EnemyController : MonoBehaviour {
 			Sequence.Add(this.GetRandomOrb());
 		}
 
-		this.ShowSequence();
+
+		if (OnSequenceChanged != null)
+		{
+			OnSequenceChanged.Invoke(this, new SequenceEventArgs(this.Sequence));
+		}
 	}
 
 	public void EnterGameArea()
