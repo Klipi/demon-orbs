@@ -7,11 +7,11 @@ public class LevelSelectCamera : MonoBehaviour {
     public float touchSensitivity = 0.01f;
     public float snapMultiplier = 1.0f;
 
-    private float m_minY = 8.0f;
-    private float m_maxY = 20.0f;
+    private float m_minY = 0f;
+    private float m_maxY = 0f;
 
-    private float m_hardMinY;
-    private float m_hardMaxY;
+    private float m_hardMinY = 0f;
+    private float m_hardMaxY = 0f;
     private Vector3 m_lastPosition;
 
     private bool m_cancelTween;
@@ -20,15 +20,16 @@ public class LevelSelectCamera : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         DOTween.Init();
-
-        m_hardMinY = m_minY - 1;
-        m_hardMaxY = m_maxY + 1;
-
         m_cancelTween = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if(!m_initialized)
+        {
+            return;
+        }
+
 	    if(Input.GetMouseButtonDown(0))
         {
             m_lastPosition = Input.mousePosition;
@@ -38,10 +39,8 @@ public class LevelSelectCamera : MonoBehaviour {
         {
             Vector3 delta = Input.mousePosition - m_lastPosition;
            
-            //Debug.Log("Delta: " + delta);
             if(delta.y > 0)
             {
-                //Debug.Log("Moving down");
                 if(transform.position.y >= m_maxY)
                 {
                     m_cancelTween = true;
@@ -49,7 +48,6 @@ public class LevelSelectCamera : MonoBehaviour {
             }
             if(delta.y < 0)
             {
-                //Debug.Log("Moving up");
                 if(transform.position.y <= m_minY)
                 {
                     m_cancelTween = true;
@@ -82,23 +80,16 @@ public class LevelSelectCamera : MonoBehaviour {
         }
 	}
 
-    public float MinY
+    public void setMinMaxY(float min, float max)
     {
-        set
-        {
-            m_minY = value;
-            m_hardMinY = m_minY - 1;
-        }
-        get { return m_minY;  }
-    }
+        m_minY = min;
+        m_hardMinY = m_minY - 1;
+        Debug.Log("Min y: " + m_minY + ", hardMinY: " + m_hardMinY);
 
-    public float MaxY
-    {
-        set
-        {
-            m_maxY = value;
-            m_hardMaxY = m_maxY + 1;
-        }
-        get { return m_maxY; }
+        m_maxY = max;
+        m_hardMaxY = m_maxY + 1;
+        Debug.Log("Max y: " + m_maxY + ", hardMaxY: " + m_hardMaxY);
+
+        m_initialized = true;
     }
 }
