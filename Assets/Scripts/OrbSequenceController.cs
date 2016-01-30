@@ -12,6 +12,8 @@ public class OrbSequenceController : MonoBehaviour {
 
 	public event SequenceEndHandler OnSequenceEnd;
 
+	private bool playing = true;
+
 	private static OrbSequenceController _instance;
 
 	public static OrbSequenceController Instance
@@ -55,7 +57,7 @@ public class OrbSequenceController : MonoBehaviour {
 	/// <param name="type">Type.</param>
 	public bool SelectOrb(OrbController controller)
 	{
-		if (currentSequence == null)
+		if (currentSequence == null || !playing)
 			return false;
 		
 		if (currentSequence.Count() == 0 || currentSequence.Last().GetNeighbors().Contains(controller))
@@ -65,6 +67,11 @@ public class OrbSequenceController : MonoBehaviour {
 		}
 
 		return false;
+	}
+
+	public void StopRound()
+	{
+		playing = false;
 	}
 
 	public void StartSequence()

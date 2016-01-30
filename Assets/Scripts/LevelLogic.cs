@@ -50,13 +50,17 @@ public class LevelLogic : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+		if (!playing)
+			return;
+
 		currentState.TimeLeft -= Time.deltaTime;
 
 		TimeHandler.Instance.SetRemainingTime(currentState.TimeLeft);
-		if (playing && currentState.TimeLeft < 0f)
+		if (currentState.TimeLeft < 0f)
 		{
 			playing = false;
 			AudioPlayer.Instance.PlaySound(SoundType.GAME_OVER);
+			OrbSequenceController.Instance.StopRound();
 		}
 	}
 
@@ -92,18 +96,29 @@ public class LevelLogic : MonoBehaviour
 
 		currentEnemy.Config = enemyToSpawn;
 		currentEnemy.OnSequenceChanged += EnemyController_OnSequenceChanged;
+		currentEnemy.OnEnemyDefeated += CurrentEnemy_OnEnemyDefeated;
 		currentEnemy.EnterGameArea();
 	}
 
 	void EnemyController_OnSequenceChanged (object sender, SequenceEventArgs e)
 	{
+		currentState.AdvanceRound();
 		OrbInfoController.Instance.DrawNewOrbs(e.Sequence);
 		OrbSequenceController.Instance.GenerateNewColors(e.Sequence);
+		ScoreController.Instance.SetScore(currentState.Score, currentState.Enemy.Rounds.Count);
+	}
+
+	void CurrentEnemy_OnEnemyDefeated (object sender, EventArgs e)
+	{
+		currentState.AdvanceRound();
+		ScoreController.Instance.SetScore(currentState.Score, currentState.Enemy.Rounds.Count);
+		AudioPlayer.Instance.PlaySound(SoundType.WIN);
 	}
 
 	void Initialize()
 	{
 		currentState = new LevelState(this.LevelConfig);
+		ScoreController.Instance.SetScore(currentState.Score, currentState.Enemy.Rounds.Count);
 
 		this.SpawnEnemy();
 	}

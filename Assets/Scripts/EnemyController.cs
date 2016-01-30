@@ -78,7 +78,7 @@ public class EnemyController : MonoBehaviour {
 		}
 
 		GenerateNewSequence();
-		return SequenceResult.HIT;
+		return _currentRound >= Config.Rounds.Count ? SequenceResult.WIN : SequenceResult.HIT;
 	} 
 
 	OrbType GetRandomOrb()

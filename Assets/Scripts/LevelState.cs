@@ -12,7 +12,15 @@ public class LevelState
 
 	public EnemyConfig Enemy;
 
-	private int _currentRound = 0;
+	private int _currentRound = -1;
+
+	public int Score
+	{
+		get
+		{
+			return _currentRound;
+		}
+	}
 
 	public Round CurrentRound
 	{
@@ -20,6 +28,12 @@ public class LevelState
 		{
 			return Enemy.Rounds[_currentRound];
 		}
+	}
+
+	public void AdvanceRound()
+	{
+		Debug.Log("Advancing");
+		_currentRound++;
 	}
 
 	public LevelState(LevelConfig config)

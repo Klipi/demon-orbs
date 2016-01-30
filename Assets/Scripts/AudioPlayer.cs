@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public enum SoundType
 {
+	WIN,
+
 	GAME_OVER,
 
 	HIT,
@@ -47,6 +49,9 @@ public class AudioPlayer : MonoBehaviour {
 	[SerializeField]
 	private AudioClip 		gameOverSound;
 
+	[SerializeField]
+	private AudioClip		winSound;
+
 	// Use this for initialization
 	void Awake () {
 		if (_instance == null)
@@ -85,6 +90,8 @@ public class AudioPlayer : MonoBehaviour {
 				return SelectRandom(missSounds);
 			case SoundType.GAME_OVER:
 				return gameOverSound;
+			case SoundType.WIN:
+				return winSound;
 			default:
 				Debug.LogWarning(string.Format("No sound set for type {0}", type));
 				return new AudioClip();

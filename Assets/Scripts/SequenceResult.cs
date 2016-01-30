@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public enum SequenceResult
 {
 	HIT,
-	MISS
+	MISS,
+	WIN
 }
 
