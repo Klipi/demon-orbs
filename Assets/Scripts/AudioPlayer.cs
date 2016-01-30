@@ -19,7 +19,7 @@ public class AudioPlayer : MonoBehaviour {
 		{
 			if (_instance == null)
 			{
-				_instance = GameObject.FindWithTag("AudioPlayer").GetComponent<AudioPlayer>();
+				Debug.LogWarning("No AudioPlayer in scene!");
 			}
 
 			return _instance;
@@ -33,7 +33,7 @@ public class AudioPlayer : MonoBehaviour {
 	private AudioClip	dragSound;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		if (_instance == null)
 		{
 			_instance = this;
@@ -56,7 +56,6 @@ public class AudioPlayer : MonoBehaviour {
 			case SoundType.SELECT:
 				int index = Random.Range(0, selectSounds.Length);
 				return selectSounds[index];
-				break;
 			case SoundType.DRAG:
 				return dragSound;
 			default:

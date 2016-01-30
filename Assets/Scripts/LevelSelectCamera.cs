@@ -7,14 +7,15 @@ public class LevelSelectCamera : MonoBehaviour {
     public float touchSensitivity = 0.01f;
     public float snapMultiplier = 1.0f;
 
-    private float m_minY = 0;
-    private float m_maxY = 20;
+    private float m_minY = 8.0f;
+    private float m_maxY = 20.0f;
 
     private float m_hardMinY;
     private float m_hardMaxY;
     private Vector3 m_lastPosition;
 
     private bool m_cancelTween;
+    private bool m_initialized;
 
 	// Use this for initialization
 	void Start () {
@@ -37,10 +38,10 @@ public class LevelSelectCamera : MonoBehaviour {
         {
             Vector3 delta = Input.mousePosition - m_lastPosition;
            
-            Debug.Log("Delta: " + delta);
+            //Debug.Log("Delta: " + delta);
             if(delta.y > 0)
             {
-                Debug.Log("Moving down");
+                //Debug.Log("Moving down");
                 if(transform.position.y >= m_maxY)
                 {
                     m_cancelTween = true;
@@ -48,7 +49,7 @@ public class LevelSelectCamera : MonoBehaviour {
             }
             if(delta.y < 0)
             {
-                Debug.Log("Moving up");
+                //Debug.Log("Moving up");
                 if(transform.position.y <= m_minY)
                 {
                     m_cancelTween = true;
