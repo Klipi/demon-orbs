@@ -19,10 +19,16 @@ public class InputHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	private Material				mousePathMaterial;
 
 	[SerializeField]
-	private float					mouseTrailFadeOutTime = 0.5f;
+	private float					mouseTrailFadeOutTime 	= 0.5f;
+
+	[SerializeField]
+	private	float					dragFadeInTime			= 0.2f;
+
+	private AudioSource				dragAudioSource;
 
     void Start()
-    {	
+    {
+		dragAudioSource = AudioPlayer.Instance.GetAudioSource(SoundType.DRAG);
 	}
 
     private void Update()
@@ -43,6 +49,12 @@ public class InputHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     	sequenceContoller.StartSequence();
 
     	mousePathRenderer.GetComponent<ParticleSystem>().Play();
+
+    	dragAudioSource.volume = 0f;
+    	dragAudioSource.DOFade(1f, dragFadeInTime);
+    	dragAudioSource.loop = true;
+    	dragAudioSource.Play();
+
     }
 
 	private IEnumerator FadeParticles()
@@ -62,7 +74,6 @@ public class InputHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
 			Color32 newColor = new Color32(255, 255, 255, a);
 
-			Debug.Log("New color " + newColor);
 			//then iterate through the array changing the color 1 by 1
 			for(int p = 0; p < particles.Length; p++)
 			{
@@ -88,5 +99,8 @@ public class InputHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
 		mousePathRenderer.GetComponent<ParticleSystem>().Stop();
 		StartCoroutine(FadeParticles());
+		dragAudioSource.DOFade(0f, dragFadeInTime)
+			.OnComplete(() => dragAudioSource.Stop());
+
     }
 }
