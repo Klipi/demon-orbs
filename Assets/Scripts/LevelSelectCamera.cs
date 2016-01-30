@@ -83,13 +83,21 @@ public class LevelSelectCamera : MonoBehaviour {
 
     public float MinY
     {
-        set { m_minY = value; }
+        set
+        {
+            m_minY = value;
+            m_hardMinY = m_minY - 1;
+        }
         get { return m_minY;  }
     }
 
     public float MaxY
     {
-        set { m_maxY = value; }
+        set
+        {
+            m_maxY = value;
+            m_hardMaxY = m_maxY + 1;
+        }
         get { return m_maxY; }
     }
 }
