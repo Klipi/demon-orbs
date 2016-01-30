@@ -37,7 +37,7 @@ public class PersistentData : MonoBehaviour {
     {
         PlayerPrefs.SetInt("Lives", this.Lives);
         PlayerPrefs.SetInt("Score", this.Score);
-        PlayerPrefs.SetInt("Level", this.CurrentLevel);
+        PlayerPrefs.SetInt("Level", this.MaxLevel);
         PlayerPrefsX.SetIntArray("LevelScores", m_levelScores);
    
     }
@@ -46,7 +46,7 @@ public class PersistentData : MonoBehaviour {
     {
         this.Lives = PlayerPrefs.GetInt("Lives", 3);
         this.Score = PlayerPrefs.GetInt("Score", 0);
-        this.CurrentLevel = PlayerPrefs.GetInt("Level", 0);
+        this.MaxLevel = PlayerPrefs.GetInt("Level", 0);
         m_levelScores = PlayerPrefsX.GetIntArray("LevelScores");
     }
 
@@ -54,6 +54,13 @@ public class PersistentData : MonoBehaviour {
     {
         get;
         set; 
+    }
+
+
+    public int MaxLevel
+    {
+        get;
+        set;
     }
 
     public int CurrentLevel

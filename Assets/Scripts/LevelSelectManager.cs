@@ -11,7 +11,7 @@ public class LevelSelectManager : MonoBehaviour {
 
     private PersistentData m_persistentData;
     private Camera m_camera;
-    private int m_currentLevel;
+    private int m_maxLevel;
 
 	// Use this for initialization
 	void Start ()
@@ -20,8 +20,8 @@ public class LevelSelectManager : MonoBehaviour {
 
         m_persistentData = GameObject.Find("SceneEssentials").GetComponent<PersistentData>();
         m_persistentData.Save();
-        m_currentLevel = m_persistentData.CurrentLevel;
-        Debug.Log("Current level at scene start: " + m_currentLevel);
+        m_maxLevel = m_persistentData.CurrentLevel;
+        Debug.Log("Max level at scene start: " + m_maxLevel);
 
         SetCamera();
         ColorizeLevelNodes();
@@ -40,15 +40,15 @@ public class LevelSelectManager : MonoBehaviour {
     {
         if(m_persistentData.Unlock)
         {
-            m_currentLevel = levels.Length - 1;
+            m_maxLevel = levels.Length - 1;
             UnlockAllLevels();
             m_persistentData.Unlock = false;
-            m_persistentData.CurrentLevel = m_currentLevel;
+            m_persistentData.CurrentLevel = m_maxLevel;
         }
 
         if(m_persistentData.Reset)
         {
-            m_currentLevel = 0;
+            m_maxLevel = 0;
             Reset();
             m_persistentData.Reset = false;
             m_persistentData.CurrentLevel = 0;
@@ -62,6 +62,7 @@ public class LevelSelectManager : MonoBehaviour {
             {
                 if(hit.collider.gameObject.tag == "Level")
                 {
+                    m_persistentData.CurrentLevel = hit.collider.gameObject.GetComponent<LevelNode>().Number;
                     SceneManager.LoadScene("main");
                 }
             }
@@ -73,7 +74,7 @@ public class LevelSelectManager : MonoBehaviour {
         DOTween.KillAll(true);
         for (int i=0; i<levels.Length-1; i++)
         {
-            if(i <= m_currentLevel)
+            if(i <= m_maxLevel)
             {
                 levels[i].GetChild(0).gameObject.SetActive(true);
                 levels[i].GetChild(1).gameObject.SetActive(false);
@@ -91,20 +92,20 @@ public class LevelSelectManager : MonoBehaviour {
             }
         }
 
-        Debug.Log("Current level is: " + m_currentLevel);
-        levels[m_currentLevel].DOScale(new Vector3(1.5f, 1.5f, 0), 1).SetLoops(-1, LoopType.Yoyo);
+        Debug.Log("Current level is: " + m_maxLevel);
+        levels[m_maxLevel].DOScale(new Vector3(1.5f, 1.5f, 0), 1).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void UnlockAllLevels()
     {
-        m_currentLevel = levels.Length - 1;
+        m_maxLevel = levels.Length - 1;
         SetCamera();
         ColorizeLevelNodes();
     }
 
     public void Reset()
     {
-        m_currentLevel = 0;
+        m_maxLevel = 0;
         SetCamera();
         ColorizeLevelNodes();
     }
