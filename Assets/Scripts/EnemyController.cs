@@ -43,12 +43,13 @@ public class EnemyController : MonoBehaviour {
 		Debug.Log("End sequence");
 	}
 
-	public SequenceResult CompareSequence(List<Orb> sequence)
+	public SequenceResult CompareSequence(List<OrbController> sequence)
 	{
 		List<OrbType> types = sequence.Select(s => s.Type).ToList();
 
 		if (types.Count != Sequence.Count)
 		{
+			AudioPlayer.Instance.PlaySound(SoundType.MISS);
 		 	return SequenceResult.MISS;
 		}
 
@@ -56,10 +57,13 @@ public class EnemyController : MonoBehaviour {
 		{
 			if (types[i].Color != Sequence[i].Color)
 			{
+				AudioPlayer.Instance.PlaySound(SoundType.HIT);
 				return SequenceResult.MISS;
 			}
 		}
 
+		GenerateNewSequence();
+		AudioPlayer.Instance.PlaySound(SoundType.HIT);
 		return SequenceResult.HIT;
 	} 
 

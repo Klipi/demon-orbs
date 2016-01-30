@@ -91,7 +91,7 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 		if (isSelected)
 			return;
 
-		bool success = sequenceController.SelectOrb(this.Type, this.Position);
+		bool success = sequenceController.SelectOrb(this);
 		if (success)
 		{
 			isSelected = true;

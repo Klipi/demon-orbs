@@ -6,7 +6,7 @@ using System.Linq;
 
 public class OrbSequenceController : MonoBehaviour {
 	
-	private List<Orb> currentSequence;
+	private List<OrbController> currentSequence;
 
 	public delegate void SequenceEndHandler(object sender, EventArgs e);
 
@@ -53,13 +53,14 @@ public class OrbSequenceController : MonoBehaviour {
 	/// </summary>
 	/// <returns><c>true</c>, if orb could be added, <c>false</c> otherwise.</returns>
 	/// <param name="type">Type.</param>
-	public bool SelectOrb(OrbType type, OrbPosition position)
+	public bool SelectOrb(OrbController controller)
 	{
-
-		if (currentSequence != null)
+		if (currentSequence == null)
+			return false;
+		
+		if (currentSequence.Count() == 0 || currentSequence.Last().GetNeighbors().Contains(controller))
 		{
-			Orb selected = new Orb(type, position);
-			currentSequence.Add(selected);
+			currentSequence.Add(controller);
 			return true;
 		}
 
@@ -68,7 +69,7 @@ public class OrbSequenceController : MonoBehaviour {
 
 	public void StartSequence()
 	{
-		currentSequence = new List<Orb>();
+		currentSequence = new List<OrbController>();
 	}
 
 	public void EndSequence()
@@ -82,7 +83,7 @@ public class OrbSequenceController : MonoBehaviour {
 		}
 	}
 
-	private void CheckSequence(List<Orb> sequence)
+	private void CheckSequence(List<OrbController> sequence)
 	{
 		Debug.Log(string.Format("Got {0} orbs in sequence", sequence.Count));
 		LevelLogic.Instance.VerifySequence(sequence);

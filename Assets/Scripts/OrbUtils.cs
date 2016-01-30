@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public enum OrbColorEnum
 {
@@ -88,17 +89,3 @@ public class OrbPosition
 		}
 	}
 }
-
-public class Orb
-{
-	public OrbType Type;
-	public OrbPosition Position;
-
-	public Orb(OrbType type, OrbPosition position)
-	{
-		Position = position;
-		Type = type;
-	}
-
-}
-
