@@ -62,7 +62,7 @@ public class AudioPlayer : MonoBehaviour {
 	private AudioClip SelectRandom(AudioClip[] clipArray)
 	{
 		int index = Random.Range(0, clipArray.Length);
-		return selectSounds[index];		
+		return clipArray[index];		
 	}
 
 	private AudioClip GetSoundForType(SoundType type)

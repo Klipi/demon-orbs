@@ -4511,6 +4511,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3d6c36fa5831345a8b356f3ac3c339c1, type: 3}
   - {fileID: 8300000, guid: 29458135499334d3db91012899a3bc2e, type: 3}
   dragSound: {fileID: 8300000, guid: 563f02153969a4a3a9be8cc25a86f820, type: 3}
+  hitSounds:
+  - {fileID: 8300000, guid: ce039f2d1c5974d48b50ce502327bcb2, type: 3}
+  - {fileID: 8300000, guid: c4a1fa1ac64b6432398adb5ec9ed8980, type: 3}
+  - {fileID: 8300000, guid: 1ec17ecdc3f3f4fdda06923892f07198, type: 3}
+  - {fileID: 8300000, guid: 410082bc506904b9d9a9267b9910d001, type: 3}
+  - {fileID: 8300000, guid: 51069f11ae3e14b6f8f95827d786d08c, type: 3}
+  - {fileID: 8300000, guid: 172681cbc8e0e4bb99546763404447a2, type: 3}
+  missSounds:
+  - {fileID: 8300000, guid: 9b25a2129a9034fad8e528f2ad59ea8f, type: 3}
+  - {fileID: 8300000, guid: a8b67e5bfb5fb4d94b950cf2e2c2b4ba, type: 3}
+  - {fileID: 8300000, guid: 70ebea1e5e96b46a484633fbc9167893, type: 3}
+  - {fileID: 8300000, guid: 1415db883958948208f67c696e479993, type: 3}
 --- !u!1 &1725221561
 GameObject:
   m_ObjectHideFlags: 0
@@ -4598,7 +4610,7 @@ MonoBehaviour:
   neighbors:
   - {fileID: 688271505}
   - {fileID: 671114965}
-  - {fileID: 961111698}
+  - {fileID: 2055140156}
   Position:
     Ring: 0
     Direction: 0
