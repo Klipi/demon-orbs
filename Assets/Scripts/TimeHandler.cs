@@ -40,6 +40,8 @@ public class TimeHandler : MonoBehaviour
 
 
 		timeBarFill.offsetMax = new Vector2(0f, topValue);
+		float value = Mathf.Clamp(0.5f + Mathf.Pow(timeLeft/InitialTimeLeft, 2f), 0f, 1f);
+		timeBarFill.GetComponent<Image>().color = new Color(1f, value, value);
 	}
 
 	private void Awake()

@@ -32,15 +32,15 @@ public class EnemyConfig
 		get
 		{	
 			List<Round> rounds = new List<Round>();
-			rounds.Add(new Round(2f, 3));
-			rounds.Add(new Round(2f, 4));
+			rounds.Add(new Round(4f, 3));
+			rounds.Add(new Round(3f, 4));
 			rounds.Add(new Round(2f, 5));
 
 			EnemyConfig result = new EnemyConfig();
 			result.Type = EnemyType.DRAGON;
 			result.Rounds = rounds;
 
-			result.InitialTime = 5f;
+			result.InitialTime = 10f;
 
 			return result;
 		}
