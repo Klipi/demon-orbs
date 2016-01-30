@@ -37,10 +37,10 @@ public class LevelSelectCamera : MonoBehaviour {
         {
             Vector3 delta = Input.mousePosition - m_lastPosition;
            
-            Debug.Log("Delta: " + delta);
+            //Debug.Log("Delta: " + delta);
             if(delta.y > 0)
             {
-                Debug.Log("Moving down");
+                //Debug.Log("Moving down");
                 if(transform.position.y >= m_maxY)
                 {
                     m_cancelTween = true;
@@ -48,7 +48,7 @@ public class LevelSelectCamera : MonoBehaviour {
             }
             if(delta.y < 0)
             {
-                Debug.Log("Moving up");
+                //Debug.Log("Moving up");
                 if(transform.position.y <= m_minY)
                 {
                     m_cancelTween = true;
