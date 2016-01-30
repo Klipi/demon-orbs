@@ -9,8 +9,12 @@ public class SettingsButtonController : MonoBehaviour {
 	public Button menuButton;
 	public Button levelsButton;
 
+    private PersistentData persistentData;
+
 	void Start () {
-		if (AudioListener.volume == 0) {
+        persistentData = GameObject.Find("SceneEssentials").GetComponent<PersistentData>();
+
+        if (AudioListener.volume == 0) {
 			soundOnText.text = "Sound: off";
 		} else {
 			soundOnText.text = "Sound: on";
@@ -37,10 +41,12 @@ public class SettingsButtonController : MonoBehaviour {
 
 	public void ClickReset () {
 		Debug.Log ("Reset clicked");
+        persistentData.Reset = true;
 	}
 
 	public void ClickUnlock () {
 		Debug.Log ("Unlock clicked");
+        persistentData.Unlock = true;
 	}
 
 	public void ClickLevels () {

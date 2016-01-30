@@ -47,6 +47,20 @@ public class LevelSelectManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if(m_persistentData.Unlock)
+        {
+            m_currentLevel = levels.Length - 1;
+            UnlockAllLevels();
+            m_persistentData.Unlock = false;
+        }
+
+        if(m_persistentData.Reset)
+        {
+            m_currentLevel = 0;
+            Reset();
+            m_persistentData.Reset = false;
+        }
+
 	    if(Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -104,6 +118,6 @@ public class LevelSelectManager : MonoBehaviour {
 
     public void Settings()
     {
-        SceneManager.LoadScene("settings");
+        SceneManager.LoadScene("settings", LoadSceneMode.Additive);
     }
 }

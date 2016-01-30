@@ -6,10 +6,7 @@ public class PersistentData : MonoBehaviour {
     private static bool s_created = false;
 
     // Put here the stats which must be transferred between scenes
-    private int m_score = 0;
-    private int m_currentLevel = 0;
-    private int m_lives = 0;
-
+    
     void Awake()
     {
         if (!s_created)
@@ -25,19 +22,31 @@ public class PersistentData : MonoBehaviour {
 
     public int Score
     {
-        get { return m_score; }
-        set { m_score = value; }
+        get;
+        set; 
     }
 
     public int CurrentLevel
     {
-        get { return m_currentLevel; }
-        set { m_currentLevel = value; }
+        get;
+        set;
     }
 
     public int Lives
     {
-        get { return m_lives; }
-        set { m_lives = Lives; }
+        get;
+        set; 
+    }
+
+    public bool Reset
+    {
+        get;
+        set;
+    }
+
+    public bool Unlock
+    {
+        get;
+        set;
     }
 }
