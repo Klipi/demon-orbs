@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1abc20743497624791758d0f4e7eb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchSensitivity: 0.01
+  touchSensitivity: 0.1
   snapMultiplier: 1
 --- !u!1 &9781344
 GameObject:
@@ -914,6 +914,8 @@ MonoBehaviour:
   - {fileID: 89070180}
   - {fileID: 1119572790}
   - {fileID: 31981215}
+  cameraMinY: 8
+  cameraMaxY: 48
 --- !u!4 &1168892575
 Transform:
   m_ObjectHideFlags: 0
