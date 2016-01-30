@@ -101,4 +101,9 @@ public class LevelSelectManager : MonoBehaviour {
         SetCamera();
         ColorizeLevelNodes();
     }
+
+    public void Settings()
+    {
+        SceneManager.LoadScene("settings");
+    }
 }
