@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class LevelSelectManager : MonoBehaviour {
 
     public Transform[] levels;
+    public float cameraMinY = 8.0f;
+    public float cameraMaxY = 48.0f;
 
     private PersistentData m_persistentData;
     private Camera m_camera;
@@ -29,20 +31,7 @@ public class LevelSelectManager : MonoBehaviour {
         m_camera = Camera.main;
         LevelSelectCamera cam = m_camera.GetComponent<LevelSelectCamera>();
 
-        //Debug
-        cam.MinY = 8.0f;
-        if (m_currentLevel + 1 <= levels.Length-1)
-        {
-            cam.MaxY = levels[m_currentLevel + 1].transform.position.y;
-        }
-        else
-        {
-            cam.MaxY = levels[levels.Length-1].transform.position.y + 1;
-        }
-
-        Vector3 pos = m_camera.transform.position;
-        pos.y = levels[m_currentLevel].transform.position.y+8;
-        m_camera.transform.position = pos;
+        cam.setMinMaxY(cameraMinY, cameraMaxY);
     }
 	
 	// Update is called once per frame
