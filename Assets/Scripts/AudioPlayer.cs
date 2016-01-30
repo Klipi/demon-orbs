@@ -56,7 +56,6 @@ public class AudioPlayer : MonoBehaviour {
 			case SoundType.SELECT:
 				int index = Random.Range(0, selectSounds.Length);
 				return selectSounds[index];
-				break;
 			case SoundType.DRAG:
 				return dragSound;
 			default:

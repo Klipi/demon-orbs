@@ -40,6 +40,11 @@ public class EnemyController : MonoBehaviour {
 		return result;
 	}
 
+	void ShowSequence()
+	{
+		OrbInfoController.Instance.DrawNewOrbs(this.Sequence);
+	}
+
 	void GenerateNewSequence()
 	{
 		Sequence = new List<OrbType>();
@@ -47,6 +52,8 @@ public class EnemyController : MonoBehaviour {
 		{
 			Sequence.Add(this.GetRandomOrb());
 		}
+
+		this.ShowSequence();
 	}
 
 	public void EnterGameArea()
