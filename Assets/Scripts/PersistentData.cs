@@ -18,7 +18,8 @@ public class PersistentData : MonoBehaviour {
         {
             Debug.Log("Persistent Data created!");
             DontDestroyOnLoad(this.gameObject);
-            s_created = true; 
+            Load();
+            s_created = true;    
         }
         else
         {
