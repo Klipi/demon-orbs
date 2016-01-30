@@ -13,7 +13,10 @@ public class LevelSelectManager : MonoBehaviour {
 
         m_camera = Camera.main;
         LevelSelectCamera cam = m_camera.GetComponent<LevelSelectCamera>();
-        
+
+        //Debug
+        cam.MinY = 0.0f;
+        cam.MaxY = 20.0f;
 
 	}
 	
