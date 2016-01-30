@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class LevelSelectManager : MonoBehaviour {
 
@@ -52,7 +53,10 @@ public class LevelSelectManager : MonoBehaviour {
             Ray ray = m_camera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("Name: " + hit.collider.name + " Tag: " + tag);
+                if(hit.collider.gameObject.tag == "Level")
+                {
+                    SceneManager.LoadScene("main");
+                }
             }
         }
 	}
