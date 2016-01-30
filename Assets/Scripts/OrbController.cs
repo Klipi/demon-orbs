@@ -51,6 +51,7 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 	void HighlightOrb()
 	{
 		this.GetComponent<RawImage>().DOColor(selectedColor, colorTweenDuration);
+		AudioPlayer.Instance.PlaySound(SoundType.SELECT);
 	}
 
 	void TrySelect()
