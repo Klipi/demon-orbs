@@ -98,7 +98,7 @@ GameObject:
   - 114: {fileID: 39463466}
   - 114: {fileID: 39463467}
   m_Layer: 5
-  m_Name: Orb (16)
+  m_Name: Orb -SE-OUT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956829737}
-  m_RootOrder: 13
+  m_RootOrder: 16
   m_AnchorMin: {x: 0.7828, y: 0.2172}
   m_AnchorMax: {x: 0.7828, y: 0.2172}
   m_AnchoredPosition: {x: -0.000025331974, y: -0.0000052452087}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -169,8 +169,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 591013071}
+  - {fileID: 48919259}
+  - {fileID: 172085313}
   Position:
     Ring: 0
     Direction: 3
@@ -228,7 +230,7 @@ GameObject:
   - 114: {fileID: 48919259}
   - 114: {fileID: 48919260}
   m_Layer: 5
-  m_Name: Orb (7)
+  m_Name: Orb -S-OUT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -299,8 +301,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 53947455}
+  - {fileID: 961111698}
+  - {fileID: 39463466}
   Position:
     Ring: 0
     Direction: 4
@@ -1917,7 +1921,7 @@ GameObject:
   - 114: {fileID: 53947455}
   - 114: {fileID: 53947456}
   m_Layer: 5
-  m_Name: Orb (6)
+  m_Name: Orb -S-IN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1952,7 +1956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1988,8 +1992,11 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 48919259}
+  - {fileID: 543332024}
+  - {fileID: 692580950}
+  - {fileID: 591013071}
   Position:
     Ring: 1
     Direction: 4
@@ -2141,7 +2148,7 @@ GameObject:
   - 114: {fileID: 172085313}
   - 114: {fileID: 172085314}
   m_Layer: 5
-  m_Name: Orb (3)
+  m_Name: Orb -E-OUT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2176,7 +2183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2212,8 +2219,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 808281022}
+  - {fileID: 2055140156}
+  - {fileID: 39463466}
   Position:
     Ring: 0
     Direction: 2
@@ -2311,7 +2320,7 @@ GameObject:
   - 114: {fileID: 543332024}
   - 114: {fileID: 543332025}
   m_Layer: 5
-  m_Name: Orb
+  m_Name: OrbMid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2348,7 +2357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2386,8 +2395,11 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 808281022}
+  - {fileID: 1542221153}
+  - {fileID: 53947455}
+  - {fileID: 688271505}
   Position:
     Ring: 2
     Direction: 8
@@ -2446,7 +2458,7 @@ GameObject:
   - 114: {fileID: 591013071}
   - 114: {fileID: 591013072}
   m_Layer: 5
-  m_Name: Orb (18)
+  m_Name: Orb -SE-IN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2481,7 +2493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2517,8 +2529,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 39463466}
+  - {fileID: 808281022}
+  - {fileID: 53947455}
   Position:
     Ring: 1
     Direction: 3
@@ -2576,7 +2590,7 @@ GameObject:
   - 114: {fileID: 671114965}
   - 114: {fileID: 671114966}
   m_Layer: 5
-  m_Name: Orb (19)
+  m_Name: Orb -NW-OUT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2593,7 +2607,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956829737}
-  m_RootOrder: 16
+  m_RootOrder: 12
   m_AnchorMin: {x: 0.2172, y: 0.7828}
   m_AnchorMax: {x: 0.2172, y: 0.7828}
   m_AnchoredPosition: {x: -0.000025451183, y: -0.0000054836273}
@@ -2611,7 +2625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2647,8 +2661,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 1529452497}
+  - {fileID: 1725221565}
+  - {fileID: 1131855850}
   Position:
     Ring: 0
     Direction: 7
@@ -2706,7 +2722,7 @@ GameObject:
   - 114: {fileID: 688271505}
   - 114: {fileID: 688271506}
   m_Layer: 5
-  m_Name: Orb (8)
+  m_Name: Orb -N-IN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2741,7 +2757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2777,8 +2793,11 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 1725221565}
+  - {fileID: 543332024}
+  - {fileID: 698808116}
+  - {fileID: 1529452497}
   Position:
     Ring: 1
     Direction: 0
@@ -2836,7 +2855,7 @@ GameObject:
   - 114: {fileID: 692580950}
   - 114: {fileID: 692580951}
   m_Layer: 5
-  m_Name: Orb (15)
+  m_Name: Orb -SW-IN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2853,7 +2872,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956829737}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_AnchorMin: {x: 0.3586, y: 0.3586}
   m_AnchorMax: {x: 0.3586, y: 0.3586}
   m_AnchoredPosition: {x: -0.00002002716, y: -0.0000026524067}
@@ -2871,7 +2890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2907,8 +2926,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 961111698}
+  - {fileID: 53947455}
+  - {fileID: 1542221153}
   Position:
     Ring: 1
     Direction: 5
@@ -2966,7 +2987,7 @@ GameObject:
   - 114: {fileID: 698808116}
   - 114: {fileID: 698808117}
   m_Layer: 5
-  m_Name: Orb (11)
+  m_Name: Orb -NE-IN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2983,7 +3004,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956829737}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_AnchorMin: {x: 0.6414, y: 0.6414}
   m_AnchorMax: {x: 0.6414, y: 0.6414}
   m_AnchoredPosition: {x: 0, y: 0.00002783537}
@@ -3001,7 +3022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3037,8 +3058,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 688271505}
+  - {fileID: 808281022}
+  - {fileID: 2055140156}
   Position:
     Ring: 1
     Direction: 1
@@ -3090,6 +3113,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 956829737}
     m_Modifications:
+    - target: {fileID: 11452828, guid: 6f9e8c0755518413ebe1fc344c7c2d1d, type: 2}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 22485402, guid: 6f9e8c0755518413ebe1fc344c7c2d1d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3190,6 +3217,22 @@ Prefab:
       propertyPath: Position.Direction
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 103422, guid: 6f9e8c0755518413ebe1fc344c7c2d1d, type: 2}
+      propertyPath: m_Name
+      value: OrbMid
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423196, guid: 6f9e8c0755518413ebe1fc344c7c2d1d, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423196, guid: 6f9e8c0755518413ebe1fc344c7c2d1d, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423196, guid: 6f9e8c0755518413ebe1fc344c7c2d1d, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f9e8c0755518413ebe1fc344c7c2d1d, type: 2}
   m_IsPrefabParent: 0
@@ -3206,7 +3249,7 @@ GameObject:
   - 114: {fileID: 808281022}
   - 114: {fileID: 808281023}
   m_Layer: 5
-  m_Name: Orb (2)
+  m_Name: Orb-E-IN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3241,7 +3284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3277,8 +3320,11 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 543332024}
+  - {fileID: 172085313}
+  - {fileID: 698808116}
+  - {fileID: 591013071}
   Position:
     Ring: 1
     Direction: 2
@@ -3362,14 +3408,14 @@ RectTransform:
   - {fileID: 48919256}
   - {fileID: 688271502}
   - {fileID: 1725221562}
-  - {fileID: 2055140153}
   - {fileID: 698808113}
+  - {fileID: 2055140153}
   - {fileID: 1529452494}
+  - {fileID: 671114962}
   - {fileID: 692580947}
-  - {fileID: 39463463}
   - {fileID: 961111695}
   - {fileID: 591013068}
-  - {fileID: 671114962}
+  - {fileID: 39463463}
   m_Father: {fileID: 139721326}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -3502,7 +3548,7 @@ GameObject:
   - 114: {fileID: 961111698}
   - 114: {fileID: 961111699}
   m_Layer: 5
-  m_Name: Orb (17)
+  m_Name: Orb -SW-OUT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3522,7 +3568,7 @@ RectTransform:
   m_RootOrder: 14
   m_AnchorMin: {x: 0.2172, y: 0.2172}
   m_AnchorMax: {x: 0.2172, y: 0.2172}
-  m_AnchoredPosition: {x: 0.00004130602, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: -0.000045776367}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961111696
@@ -3537,7 +3583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3573,8 +3619,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 692580950}
+  - {fileID: 48919259}
+  - {fileID: 1131855850}
   Position:
     Ring: 0
     Direction: 5
@@ -3632,7 +3680,7 @@ GameObject:
   - 114: {fileID: 1131855850}
   - 114: {fileID: 1131855851}
   m_Layer: 5
-  m_Name: Orb (5)
+  m_Name: Orb -W-OUT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3667,7 +3715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3703,8 +3751,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 1542221153}
+  - {fileID: 671114965}
+  - {fileID: 961111698}
   Position:
     Ring: 0
     Direction: 6
@@ -3929,7 +3979,7 @@ GameObject:
   - 114: {fileID: 1529452497}
   - 114: {fileID: 1529452498}
   m_Layer: 5
-  m_Name: Orb (14)
+  m_Name: Orb -NW-IN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3964,7 +4014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4000,8 +4050,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 688271505}
+  - {fileID: 1542221153}
+  - {fileID: 671114965}
   Position:
     Ring: 1
     Direction: 7
@@ -4146,7 +4198,7 @@ GameObject:
   - 114: {fileID: 1542221153}
   - 114: {fileID: 1542221154}
   m_Layer: 5
-  m_Name: Orb (4)
+  m_Name: Orb -W-IN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4181,7 +4233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4217,8 +4269,11 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 543332024}
+  - {fileID: 1131855850}
+  - {fileID: 1529452497}
+  - {fileID: 692580950}
   Position:
     Ring: 1
     Direction: 6
@@ -4469,7 +4524,7 @@ GameObject:
   - 114: {fileID: 1725221565}
   - 114: {fileID: 1725221566}
   m_Layer: 5
-  m_Name: Orb (9)
+  m_Name: Orb -N-OUT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4504,7 +4559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4540,8 +4595,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 688271505}
+  - {fileID: 671114965}
+  - {fileID: 961111698}
   Position:
     Ring: 0
     Direction: 0
@@ -4719,7 +4776,7 @@ GameObject:
   - 114: {fileID: 2055140156}
   - 114: {fileID: 2055140157}
   m_Layer: 5
-  m_Name: Orb (10)
+  m_Name: Orb -NE-OUT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4736,7 +4793,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956829737}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_AnchorMin: {x: 0.7828, y: 0.7828}
   m_AnchorMax: {x: 0.7828, y: 0.7828}
   m_AnchoredPosition: {x: 0, y: -0.000015974045}
@@ -4754,7 +4811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5137255, g: 0.5137255, b: 0.5137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4790,8 +4847,10 @@ MonoBehaviour:
   sequenceController: {fileID: 956829742}
   inputHandler: {fileID: 956829741}
   colorTweenDuration: 0.3
-  Type:
-    Color: 0
+  neighbors:
+  - {fileID: 698808116}
+  - {fileID: 1725221565}
+  - {fileID: 172085313}
   Position:
     Ring: 0
     Direction: 1
