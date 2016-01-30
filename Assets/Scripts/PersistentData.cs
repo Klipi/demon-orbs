@@ -11,11 +11,13 @@ public class PersistentData : MonoBehaviour {
     {
         if (!s_created)
         {
+            Debug.Log("Persistent Data created!");
             DontDestroyOnLoad(this.gameObject);
             s_created = true;
         }
         else
         {
+            Debug.Log("Persistent Data already initialized...");
             Destroy(this.gameObject);
         }
     }
