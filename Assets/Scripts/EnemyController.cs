@@ -19,6 +19,9 @@ public class EnemyController : MonoBehaviour {
 	public delegate void SequenceChangeHandler(object sender, SequenceEventArgs e);
 	public event SequenceChangeHandler OnSequenceChanged;
 
+	public delegate void EnemyDefeatedHandler(object sender, EventArgs e);
+	public event EnemyDefeatedHandler OnEnemyDefeated;
+
 	private int 			_currentRound = -1;
 
 	public List<OrbType> 	CurrentSequence;
@@ -91,7 +94,15 @@ public class EnemyController : MonoBehaviour {
 
 		if (Config.Rounds.Count() <= _currentRound)
 		{
-			Debug.Log("TODO: Trigger ending");
+			if (OnEnemyDefeated != null)
+			{
+				OnEnemyDefeated.Invoke(this, EventArgs.Empty);
+			}
+			else
+			{
+				Debug.LogWarning("No listener to enemy defeated event");
+			}
+
 			return;
 		}
 

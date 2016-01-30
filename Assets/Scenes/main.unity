@@ -2128,6 +2128,7 @@ RectTransform:
   - {fileID: 956829737}
   - {fileID: 1562173843}
   - {fileID: 2020275604}
+  - {fileID: 1602571824}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -4463,6 +4464,91 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1562173842}
+--- !u!1 &1602571823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1602571824}
+  - 222: {fileID: 1602571827}
+  - 114: {fileID: 1602571826}
+  - 114: {fileID: 1602571825}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1602571824
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602571823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 139721326}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -200}
+  m_SizeDelta: {x: 200, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1602571825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602571823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93b66546411743e98438ac3d9428ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1602571826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602571823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 228
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1602571827
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602571823}
 --- !u!1 &1647396574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,17 +4589,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectSounds:
-  - {fileID: 8300000, guid: f3be407abf77a40daaeac49b5affd8a5, type: 3}
-  - {fileID: 8300000, guid: 2f2887abcacbe4fc7ac32c9dfeeef773, type: 3}
-  - {fileID: 8300000, guid: a825c5870b00f41bf90951e2f0d82c11, type: 3}
-  - {fileID: 8300000, guid: eb1e88d8d99994fd5bd84053751c9aee, type: 3}
-  - {fileID: 8300000, guid: 370aa73805b564e218b2dfb8de9455d3, type: 3}
-  - {fileID: 8300000, guid: 043d1b3d2fb9b4906985a5532d54f151, type: 3}
-  - {fileID: 8300000, guid: bcb7691966e124530921e224b90a5a3e, type: 3}
-  - {fileID: 8300000, guid: 09f3212723ef0496c9b11b5470d1a477, type: 3}
-  - {fileID: 8300000, guid: 02327cdcfee834edaafabe74bdeb833d, type: 3}
-  - {fileID: 8300000, guid: 3d6c36fa5831345a8b356f3ac3c339c1, type: 3}
-  - {fileID: 8300000, guid: 29458135499334d3db91012899a3bc2e, type: 3}
+  - {fileID: 8300000, guid: ce039f2d1c5974d48b50ce502327bcb2, type: 3}
+  - {fileID: 8300000, guid: c4a1fa1ac64b6432398adb5ec9ed8980, type: 3}
+  - {fileID: 8300000, guid: 1ec17ecdc3f3f4fdda06923892f07198, type: 3}
+  - {fileID: 8300000, guid: 410082bc506904b9d9a9267b9910d001, type: 3}
+  - {fileID: 8300000, guid: 51069f11ae3e14b6f8f95827d786d08c, type: 3}
+  - {fileID: 8300000, guid: 172681cbc8e0e4bb99546763404447a2, type: 3}
   dragSound: {fileID: 8300000, guid: 563f02153969a4a3a9be8cc25a86f820, type: 3}
   hitSounds:
   - {fileID: 8300000, guid: ce039f2d1c5974d48b50ce502327bcb2, type: 3}

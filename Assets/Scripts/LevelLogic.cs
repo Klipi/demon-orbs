@@ -50,9 +50,10 @@ public class LevelLogic : MonoBehaviour
 	void Update () {
 		currentState.TimeLeft -= Time.deltaTime;
 
+		TimeHandler.Instance.SetRemainingTime(currentState.TimeLeft);
 		if (currentState.TimeLeft < 0f)
 		{
-			Debug.Log("TODO: Trigger game over");
+			
 		}
 	}
 
