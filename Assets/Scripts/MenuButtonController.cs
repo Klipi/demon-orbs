@@ -9,6 +9,6 @@ public class MenuButtonController : MonoBehaviour {
 	}
 
 	public void ClickSettings () {
-		SceneManager.LoadScene ("settings");
+		SceneManager.LoadScene ("settings", LoadSceneMode.Additive);
 	}
 }	

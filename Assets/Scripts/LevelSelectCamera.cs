@@ -7,14 +7,15 @@ public class LevelSelectCamera : MonoBehaviour {
     public float touchSensitivity = 0.01f;
     public float snapMultiplier = 1.0f;
 
-    private float m_minY = 0;
-    private float m_maxY = 20;
+    private float m_minY = 8.0f;
+    private float m_maxY = 20.0f;
 
     private float m_hardMinY;
     private float m_hardMaxY;
     private Vector3 m_lastPosition;
 
     private bool m_cancelTween;
+    private bool m_initialized;
 
 	// Use this for initialization
 	void Start () {
