@@ -104,6 +104,6 @@ public class LevelSelectManager : MonoBehaviour {
 
     public void Settings()
     {
-        SceneManager.LoadScene("settings");
+        SceneManager.LoadScene("settings", LoadSceneMode.Additive);
     }
 }
