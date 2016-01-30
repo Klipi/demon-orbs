@@ -23,7 +23,7 @@ public class OrbInfoController : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		if (_instance == null)
 		{
 			_instance = this;
