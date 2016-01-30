@@ -18,6 +18,7 @@ public class LevelSelectManager : MonoBehaviour {
 
         m_persistentData = GameObject.Find("SceneEssentials").GetComponent<PersistentData>();
         m_currentLevel = m_persistentData.CurrentLevel;
+        Debug.Log("Current level at scene start: " + m_currentLevel);
 
         SetCamera();
         ColorizeLevelNodes();
@@ -52,6 +53,7 @@ public class LevelSelectManager : MonoBehaviour {
             m_currentLevel = levels.Length - 1;
             UnlockAllLevels();
             m_persistentData.Unlock = false;
+            m_persistentData.CurrentLevel = m_currentLevel;
         }
 
         if(m_persistentData.Reset)
@@ -59,6 +61,7 @@ public class LevelSelectManager : MonoBehaviour {
             m_currentLevel = 0;
             Reset();
             m_persistentData.Reset = false;
+            m_persistentData.CurrentLevel = 0;
         }
 
 	    if(Input.GetMouseButtonDown(0))
