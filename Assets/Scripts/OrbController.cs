@@ -68,7 +68,7 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 	void UnHighlightOrb()
 	{
 //		this.GetComponent<RawImage>().DOColor(unselectedColor, colorTweenDuration);
-		Texture texture = (Texture)Resources.Load(Type.GetResourceName(false));
+		Texture texture = (Texture)Resources.Load(Type.GetResourcePath(false));
 		this.GetComponent<RawImage>().texture = texture;
 	}
 
@@ -76,7 +76,7 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 	{
 		// this.GetComponent<RawImage>().DOColor(selectedColor, colorTweenDuration);
 
-		Texture texture = (Texture)Resources.Load(Type.GetResourceName(true));
+		Texture texture = (Texture)Resources.Load(Type.GetResourcePath(true));
 		this.GetComponent<RawImage>().texture = texture;
 		AudioPlayer.Instance.PlaySound(SoundType.SELECT);
 	}

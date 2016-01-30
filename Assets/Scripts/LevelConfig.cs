@@ -4,21 +4,19 @@ using System.Collections.Generic;
 
 public class LevelConfig
 {
-	public int EnemiesToDefeat;
-	public List<EnemyConfig> Enemies;
+	public EnemyConfig 	Enemy;
+
+	public LevelConfig(EnemyConfig enemy)
+	{
+		Enemy = enemy;
+	}
+
 
 	public static LevelConfig DefaultConfig
 	{
 		get
 		{
-			List<EnemyConfig> enemies = new List<EnemyConfig>();
-			enemies.Add(EnemyConfig.DefaultEnemy);
-
-			LevelConfig result = new LevelConfig();
-			result.Enemies = enemies;
-			result.EnemiesToDefeat = 1;
-
-			return result;
+			return new LevelConfig(EnemyConfig.DefaultEnemy);
 		}
 		
 	}

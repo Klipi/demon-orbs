@@ -19,9 +19,23 @@ public class EnemyController : MonoBehaviour {
 	public delegate void SequenceChangeHandler(object sender, SequenceEventArgs e);
 	public event SequenceChangeHandler OnSequenceChanged;
 
-	public List<OrbType> 	Sequence;
+	private int 			_currentRound = -1;
 
-	public int				SequenceLength;
+	public List<OrbType> 	CurrentSequence;
+
+	public int				CurrentSequenceLength
+	{
+		get
+		{
+			return Config.Rounds[_currentRound].SequenceLength;
+		}
+	}
+
+	public EnemyConfig Config
+	{
+		get;
+		set;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -47,23 +61,20 @@ public class EnemyController : MonoBehaviour {
 	{
 		List<OrbType> types = sequence.Select(s => s.Type).ToList();
 
-		if (types.Count != Sequence.Count)
+		if (types.Count != CurrentSequence.Count)
 		{
-			AudioPlayer.Instance.PlaySound(SoundType.MISS);
 		 	return SequenceResult.MISS;
 		}
 
 		for (int i = 0; i < types.Count; i++)
 		{
-			if (types[i].Color != Sequence[i].Color)
+			if (types[i].Color != CurrentSequence[i].Color)
 			{
-				AudioPlayer.Instance.PlaySound(SoundType.HIT);
 				return SequenceResult.MISS;
 			}
 		}
 
 		GenerateNewSequence();
-		AudioPlayer.Instance.PlaySound(SoundType.HIT);
 		return SequenceResult.HIT;
 	} 
 
@@ -76,17 +87,25 @@ public class EnemyController : MonoBehaviour {
 
 	void GenerateNewSequence()
 	{
-		Sequence = new List<OrbType>();
-		for (int i = 0; i < SequenceLength; i++)
+		_currentRound++;
+
+		if (Config.Rounds.Count() <= _currentRound)
 		{
-			Sequence.Add(this.GetRandomOrb());
-			Debug.Log(Sequence[i].Color);
+			Debug.Log("TODO: Trigger ending");
+			return;
+		}
+
+		CurrentSequence = new List<OrbType>();
+		for (int i = 0; i < CurrentSequenceLength; i++)
+		{
+			CurrentSequence.Add(this.GetRandomOrb());
+			Debug.Log(CurrentSequence[i].Color);
 		}
 
 
 		if (OnSequenceChanged != null)
 		{
-			OnSequenceChanged.Invoke(this, new SequenceEventArgs(this.Sequence));
+			OnSequenceChanged.Invoke(this, new SequenceEventArgs(this.CurrentSequence));
 		}
 	}
 
@@ -98,7 +117,7 @@ public class EnemyController : MonoBehaviour {
 
 		this.GenerateNewSequence();
 
-		Debug.Log(string.Format("Generated a {0} orb long sequence", this.Sequence.Count));
+		Debug.Log(string.Format("Generated a {0} orb long sequence", this.CurrentSequence.Count));
 	}
 
 }

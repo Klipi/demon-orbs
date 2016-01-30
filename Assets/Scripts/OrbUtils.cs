@@ -59,7 +59,7 @@ public class OrbType
   		return result;
 	}    
 
-	public string GetResourceName(bool active)
+	public string GetResourcePath(bool active)
 	{
 		string colorName = this.Color.ToString().ToLower();
 		string capitalized = char.ToUpper(colorName[0]) + colorName.Substring(1);
