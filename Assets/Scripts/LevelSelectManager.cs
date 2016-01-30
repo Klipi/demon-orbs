@@ -19,6 +19,7 @@ public class LevelSelectManager : MonoBehaviour {
         DOTween.Init();
 
         m_persistentData = GameObject.Find("SceneEssentials").GetComponent<PersistentData>();
+        m_persistentData.Save();
         m_currentLevel = m_persistentData.CurrentLevel;
         Debug.Log("Current level at scene start: " + m_currentLevel);
 
