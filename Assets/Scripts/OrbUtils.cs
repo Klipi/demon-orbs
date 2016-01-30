@@ -50,7 +50,7 @@ public class OrbType
 		Color = color;
 	}
 
-    public OrbType GetRandomOrbType()
+    public static OrbType GetRandomOrbType()
     {
   		OrbColorEnum[] values = (OrbColorEnum[]) Enum.GetValues(typeof(OrbColorEnum));
 		OrbType result = new OrbType(values[new Random().Next(0,values.Length)]);

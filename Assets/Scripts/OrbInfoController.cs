@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class OrbInfoController : MonoBehaviour {
 
@@ -54,13 +55,19 @@ public class OrbInfoController : MonoBehaviour {
 	public void DrawNewOrbs(List<OrbType> orbs)
 	{
 		ClearOrbs();
-
+		int i = 0;
 		foreach (OrbType orb in orbs)
 		{
 			GameObject newOrb = Instantiate(orbPrefab);
 			newOrb.transform.SetParent(this.transform);
 			newOrb.transform.localScale = Vector3.one;
 
+			Texture2D tex = (Texture2D)Resources.Load(orbs[i].GetResourceName(true));
+			Sprite sprite = Sprite.Create(tex, new Rect(0f, 0f, tex.width, tex.height), Vector2.one/2f);
+
+			newOrb.GetComponent<Image>().sprite = sprite;
+
+			i++;
 		}
 	}
 

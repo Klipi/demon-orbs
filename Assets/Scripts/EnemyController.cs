@@ -65,7 +65,7 @@ public class EnemyController : MonoBehaviour {
 
 	OrbType GetRandomOrb()
 	{
-		OrbType result = new OrbType(OrbColorEnum.BLUE);
+		OrbType result = OrbType.GetRandomOrbType();
 
 		return result;
 	}
@@ -76,6 +76,7 @@ public class EnemyController : MonoBehaviour {
 		for (int i = 0; i < SequenceLength; i++)
 		{
 			Sequence.Add(this.GetRandomOrb());
+			Debug.Log(Sequence[i].Color);
 		}
 
 

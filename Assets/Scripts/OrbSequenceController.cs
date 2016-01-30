@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class OrbSequenceController : MonoBehaviour {
 	
@@ -26,6 +27,17 @@ public class OrbSequenceController : MonoBehaviour {
 		}
 	}
 
+	void Awake () 
+	{
+		if (_instance == null)
+		{
+			_instance = this;
+		}
+		else
+		{
+			Debug.LogWarning("Several OrbSequenceControllers in scene!");
+		}
+	}
 	// Use this for initialization
 	void Start () {
 	
@@ -95,11 +107,36 @@ public class OrbSequenceController : MonoBehaviour {
 
 		int initialIndex = UnityEngine.Random.Range(0, orbs.Count);
 
-		OrbController initialOrb = orbs[initialIndex];
+		OrbController currentOrb = orbs[initialIndex];
+		List<OrbController> usedOrbs = new List<OrbController>();
 
-		initialOrb.Type = sequence[0];
+		for (int i = 0; i < sequence.Count; i++)
+		{
+			currentOrb.Type = sequence[i];
+			Debug.Log(string.Format("Set orb at {1} / {2} type to {0}", currentOrb.Type.Color, currentOrb.Position.Direction, currentOrb.Position.Ring));
+			usedOrbs.Add(currentOrb);
+			IEnumerable<OrbController> unusedNeighbors = currentOrb.GetNeighbors().Except(usedOrbs);
 
-		List<OrbController> neighbors = initialOrb.GetNeighbors();
+			if (unusedNeighbors.Count() == 0 && i < sequence.Count() -1)
+			{
+				Debug.LogError("Greedy pattern search failed! Rethink algorithm!");
+			}
+			else
+			{
+				int index = UnityEngine.Random.Range(0, unusedNeighbors.Count());
+				currentOrb = unusedNeighbors.ToList()[index];
+			}
+
+		}
+
+		IEnumerable<OrbController> unusedOrbs = orbs.Except(usedOrbs);
+
+		foreach (OrbController orb in unusedOrbs)
+		{
+			orb.Type = OrbType.GetRandomOrbType();
+			Debug.Log(string.Format("Set orb at {1} / {2} type to {0}", orb.Type.Color, orb.Position.Direction, orb.Position.Ring));
+		}
+
 	}
 
 }

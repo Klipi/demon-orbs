@@ -46,17 +46,12 @@ public class OrbController : MonoBehaviour, IPointerDownHandler, IPointerEnterHa
 
 	// Use this for initialization
 	void Start () {
-		OrbType newType = new OrbType(OrbColorEnum.BLUE);
-		Type = newType;
-
 		sequenceController.OnSequenceEnd += SequenceController_OnSequenceEnd;
-
-		this.gameObject.SetActive(false);
 	}
 
 	private void ChangeSprite()
 	{
-		Type.GetResourceName(false);
+		UnHighlightOrb();
 	}
 
 	void SequenceController_OnSequenceEnd (object sender, System.EventArgs e)
