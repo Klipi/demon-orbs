@@ -27712,8 +27712,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a8b67e5bfb5fb4d94b950cf2e2c2b4ba, type: 3}
   - {fileID: 8300000, guid: 70ebea1e5e96b46a484633fbc9167893, type: 3}
   - {fileID: 8300000, guid: 1415db883958948208f67c696e479993, type: 3}
-  gameOverSound: {fileID: 8300000, guid: c97ccd8f035d247ee8e9e67a6234dbc7, type: 3}
-  winSound: {fileID: 8300000, guid: 370aa73805b564e218b2dfb8de9455d3, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 8d35d000a13898b42b09ed26cc3d38df, type: 3}
+  winSound: {fileID: 8300000, guid: b17829c480e013041bffb19894ca5c07, type: 3}
   clickSounds:
   - {fileID: 8300000, guid: 37e21b3c2a35b484388b1aa0fe102a5d, type: 3}
   - {fileID: 8300000, guid: 68c830ef158c74500844274a56fd303c, type: 3}
