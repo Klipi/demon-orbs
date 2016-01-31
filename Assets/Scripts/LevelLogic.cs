@@ -83,8 +83,9 @@ public class LevelLogic : MonoBehaviour
 				break;
 			case EnemyType.LIZARD:
 				Debug.Log("Spawning Lizard");
-				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_02");
-				break;
+				currentEnemy.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_02_head");
+                currentEnemy.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_02_body");
+                break;
 			case EnemyType.IMP:
 				Debug.Log("Spawning Imp Boss");
 				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/DemonBlob");
