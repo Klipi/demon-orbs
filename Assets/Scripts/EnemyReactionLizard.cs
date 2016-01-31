@@ -26,12 +26,27 @@ public class EnemyReactionLizard : MonoBehaviour
 
     public void Idle()
     {
-        /*
+        
         Debug.Log("Idle!");
         DOTween.CompleteAll(); //needed?
         DOTween.KillAll(); //needed?
         Debug.Log("All prev tweens completed!");
 
+        m_head.transform.position = m_startPosHead;
+        m_head.transform.rotation = Quaternion.Euler(m_startRotHead);
+
+        Sequence idleSeq = DOTween.Sequence();
+        idleSeq.SetId("idle");
+        idleSeq.Append(m_head.DOLocalRotate(new Vector3(0, 0, -6), 1.0f));
+        idleSeq.Join(m_head.DOScaleY(0.90f, 1.0f));
+        idleSeq.SetLoops(-1, LoopType.Yoyo);
+        DOTween.Play(idleSeq);
+
+        StartCoroutine(IdleBodySequence());
+
+
+
+        /*
         transform.position = m_startPosition;
         transform.rotation = Quaternion.Euler(m_startRotation);
         transform.localScale = m_startScale;
@@ -52,6 +67,17 @@ public class EnemyReactionLizard : MonoBehaviour
         jumpSeq.SetLoops(-1, LoopType.Restart);
         DOTween.Play(jumpSeq);
         */
+    }
+
+    IEnumerator IdleBodySequence()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        Sequence idleSeq2 = DOTween.Sequence();
+        idleSeq2.SetId("idle2");
+        idleSeq2.Append(m_body.DOScaleY(0.95f, 1.0f));
+        idleSeq2.SetLoops(-1, LoopType.Yoyo);
+        DOTween.Play(idleSeq2);
     }
 
     public void HitEnemy()
