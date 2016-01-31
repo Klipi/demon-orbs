@@ -2,7 +2,7 @@
 using System.Collections;
 using DG.Tweening;
 
-public class EnemyReaction : MonoBehaviour {
+public class EnemyReactionDragon : MonoBehaviour {
 
     private Vector3 upScale = new Vector3(0.2f, 0.2f, 0.2f);
 
@@ -73,12 +73,6 @@ public class EnemyReaction : MonoBehaviour {
         hitSeq.AppendInterval(0.1f);
         hitSeq.OnComplete(Idle);
         DOTween.Play(hitSeq);
-    }
-
-   
-    public void YouWin()
-    {
-        Debug.Log("Not implemented!");
     }
 
     public void HitsYou()
