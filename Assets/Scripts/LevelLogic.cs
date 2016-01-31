@@ -191,7 +191,7 @@ public class LevelLogic : MonoBehaviour
 		
 
 		}
-		currentState = new LevelState(this.LevelConfig);
+		currentState = new LevelState(newLevel);
 		ScoreController.Instance.SetScore(currentState.Score, currentState.Enemy.Rounds.Count);
 
 		this.SpawnEnemy();
