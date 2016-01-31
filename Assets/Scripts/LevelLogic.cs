@@ -128,7 +128,7 @@ public class LevelLogic : MonoBehaviour
 
     IEnumerator ExitScene()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene("levelselect", LoadSceneMode.Single);
     }
 
