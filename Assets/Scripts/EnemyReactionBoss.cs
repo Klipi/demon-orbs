@@ -2,12 +2,12 @@
 using System.Collections;
 using DG.Tweening;
 
-public class EnemyReactionDragon : MonoBehaviour {
+public class EnemyReactionBoss : MonoBehaviour
+{
 
     private Vector3 upScale = new Vector3(0.2f, 0.2f, 0.2f);
 
     private Vector3 m_startPosition;
-    private Vector3 m_startRotation;
     private Vector3 m_startScale;
 
     private Vector3 m_endPositionUp;
@@ -20,7 +20,6 @@ public class EnemyReactionDragon : MonoBehaviour {
     {
         DOTween.Init();
         m_startPosition = transform.position;
-        m_startRotation = transform.rotation.eulerAngles;
         m_startScale = transform.localScale;
 
         m_endPositionUp = m_startPosition;
@@ -43,7 +42,6 @@ public class EnemyReactionDragon : MonoBehaviour {
         Debug.Log("All prev tweens completed!");
 
         transform.position = m_startPosition;
-        //transform.rotation = Quaternion.Euler(m_startRotation);
         transform.localScale = m_startScale;
 
         Sequence jumpSeq = DOTween.Sequence();
@@ -53,7 +51,6 @@ public class EnemyReactionDragon : MonoBehaviour {
         //jumpSeq.Append(transform.DOJump(m_endPositionUp, 0.5f, 1, 1.0f));
         jumpSeq.Append(transform.DOScaleX(0.12f, 1.0f));
         jumpSeq.Join(transform.DOScaleY(0.15f, 1.0f));
-        
 
         //jumpSeq.Append(transform.DOMove(m_endPositionDown, 1.0f));
         //jumpSeq.Join(transform.DOScaleX(0.15f, 1.0f));
@@ -73,7 +70,7 @@ public class EnemyReactionDragon : MonoBehaviour {
         Sequence hitSeq = DOTween.Sequence();
         hitSeq.SetId("hit");
         hitSeq.Append(transform.DOShakePosition(1.0f, 0.7f, 10, 90));
-        hitSeq.Join(transform.DOPunchScale(new Vector3(-0.1f, -0.1f,-0.1f), 1, 3, 0));
+        hitSeq.Join(transform.DOPunchScale(new Vector3(-0.1f, -0.1f, -0.1f), 1, 3, 0));
         hitSeq.AppendInterval(0.1f);
         hitSeq.OnComplete(Idle);
         DOTween.Play(hitSeq);
