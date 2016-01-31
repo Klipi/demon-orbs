@@ -7,7 +7,7 @@ public class LevelSelectManager : MonoBehaviour {
 
     public Transform[] levels;
     public float cameraMinY = 8.0f;
-    public float cameraMaxY = 48.0f;
+    public float cameraMaxY = 50.0f;
 
     private PersistentData m_persistentData;
     private Camera m_camera;

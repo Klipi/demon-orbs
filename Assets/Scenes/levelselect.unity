@@ -1145,7 +1145,7 @@ MonoBehaviour:
   - {fileID: 1119572790}
   - {fileID: 31981215}
   cameraMinY: 8
-  cameraMaxY: 48
+  cameraMaxY: 50
 --- !u!4 &1168892575
 Transform:
   m_ObjectHideFlags: 0
