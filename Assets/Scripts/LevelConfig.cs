@@ -25,7 +25,7 @@ public class LevelConfig
 	{
 		get
 		{
-			return new LevelConfig(EnemyConfig.DefaultEnemy);
+			return new LevelConfig(EnemyConfig.Level0);
 		}
 
 	}
@@ -34,7 +34,7 @@ public class LevelConfig
 	{
 		get
 		{
-			return new LevelConfig(EnemyConfig.DefaultEnemy);
+			return new LevelConfig(EnemyConfig.Level1);
 		}
 
 	}
@@ -43,7 +43,7 @@ public class LevelConfig
 	{
 		get
 		{
-			return new LevelConfig(EnemyConfig.DefaultEnemy);
+			return new LevelConfig(EnemyConfig.Level2);
 		}
 
 	}
@@ -52,7 +52,7 @@ public class LevelConfig
 	{
 		get
 		{
-			return new LevelConfig(EnemyConfig.DefaultEnemy);
+			return new LevelConfig(EnemyConfig.Level3);
 		}
 
 	}
@@ -61,7 +61,7 @@ public class LevelConfig
 	{
 		get
 		{
-			return new LevelConfig(EnemyConfig.DefaultEnemy);
+			return new LevelConfig(EnemyConfig.Level4);
 		}
 
 	}
@@ -70,7 +70,7 @@ public class LevelConfig
 	{
 		get
 		{
-			return new LevelConfig(EnemyConfig.DefaultEnemy);
+			return new LevelConfig(EnemyConfig.Level5);
 		}
 
 	}
@@ -79,7 +79,7 @@ public class LevelConfig
 	{
 		get
 		{
-			return new LevelConfig(EnemyConfig.DefaultEnemy);
+			return new LevelConfig(EnemyConfig.Level6);
 		}
 
 	}
