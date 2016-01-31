@@ -40,8 +40,11 @@ public class LevelSelectManager : MonoBehaviour {
     {
         m_camera = Camera.main;
         LevelSelectCamera cam = m_camera.GetComponent<LevelSelectCamera>();
-
         cam.setMinMaxY(cameraMinY, cameraMaxY);
+
+        Vector3 pos = m_camera.transform.position;
+        pos.y = Mathf.Clamp(levels[m_persistentData.MaxLevel].position.y, cameraMinY, cameraMaxY);
+        m_camera.transform.position = pos;
     }
 	
 	// Update is called once per frame
