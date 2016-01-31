@@ -53,9 +53,8 @@ public class EnemyConfig
         get
         {
             List<Round> rounds = new List<Round>();
-            rounds.Add(new Round(5f, 3));
-            rounds.Add(new Round(8f, 3));
             rounds.Add(new Round(10f, 3));
+            rounds.Add(new Round(5f, 3));
 
             EnemyConfig result = new EnemyConfig();
             result.Type = EnemyType.DRAGON;
@@ -72,9 +71,9 @@ public class EnemyConfig
         get
         {
             List<Round> rounds = new List<Round>();
-            rounds.Add(new Round(8f, 3));
-            rounds.Add(new Round(6f, 3));
-            rounds.Add(new Round(8f, 4));
+            rounds.Add(new Round(10f, 3));
+            rounds.Add(new Round(4f, 3));
+            rounds.Add(new Round(3f, 3));
 
             EnemyConfig result = new EnemyConfig();
             result.Type = EnemyType.LIZARD;
@@ -91,9 +90,9 @@ public class EnemyConfig
         get
         {
             List<Round> rounds = new List<Round>();
-            rounds.Add(new Round(4f, 3));
+            rounds.Add(new Round(10f, 3));
             rounds.Add(new Round(3f, 4));
-            rounds.Add(new Round(2f, 5));
+            rounds.Add(new Round(3f, 5));
 
             EnemyConfig result = new EnemyConfig();
             result.Type = EnemyType.BOSS;
@@ -110,9 +109,8 @@ public class EnemyConfig
         get
         {
             List<Round> rounds = new List<Round>();
-            rounds.Add(new Round(4f, 3));
+            rounds.Add(new Round(10f, 4));
             rounds.Add(new Round(3f, 4));
-            rounds.Add(new Round(2f, 5));
 
             EnemyConfig result = new EnemyConfig();
             result.Type = EnemyType.DRAGON2;
@@ -129,9 +127,9 @@ public class EnemyConfig
         get
         {
             List<Round> rounds = new List<Round>();
-            rounds.Add(new Round(4f, 3));
+            rounds.Add(new Round(10f, 4));
             rounds.Add(new Round(3f, 4));
-            rounds.Add(new Round(2f, 5));
+            rounds.Add(new Round(3f, 4));
 
             EnemyConfig result = new EnemyConfig();
             result.Type = EnemyType.LIZARD2;
@@ -148,9 +146,11 @@ public class EnemyConfig
         get
         {
             List<Round> rounds = new List<Round>();
-            rounds.Add(new Round(4f, 3));
+            rounds.Add(new Round(10f, 3));
             rounds.Add(new Round(3f, 4));
-            rounds.Add(new Round(2f, 5));
+            rounds.Add(new Round(3f, 4));
+			rounds.Add(new Round(2f, 5));
+			rounds.Add(new Round(2f, 5));
 
             EnemyConfig result = new EnemyConfig();
             result.Type = EnemyType.BOSS2;
@@ -167,9 +167,11 @@ public class EnemyConfig
         get
         {
             List<Round> rounds = new List<Round>();
-            rounds.Add(new Round(4f, 3));
-            rounds.Add(new Round(3f, 4));
-            rounds.Add(new Round(2f, 5));
+            rounds.Add(new Round(10f, 5));
+            rounds.Add(new Round(1f, 5));
+            rounds.Add(new Round(1f, 5));
+			rounds.Add(new Round(1f, 5));
+			rounds.Add(new Round(1f, 5));
 
             EnemyConfig result = new EnemyConfig();
             result.Type = EnemyType.IMP;

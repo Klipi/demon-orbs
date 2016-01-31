@@ -189,7 +189,6 @@ public class LevelLogic : MonoBehaviour
 			newLevel = LevelConfig.DefaultConfig;
 			break;
 		
-
 		}
 		currentState = new LevelState(newLevel);
 		ScoreController.Instance.SetScore(currentState.Score, currentState.Enemy.Rounds.Count);
@@ -199,7 +198,12 @@ public class LevelLogic : MonoBehaviour
 
 	void AddTimeToTimer()
 	{
+		Debug.Log ("Time left: " + currentState.TimeLeft);
 		currentState.TimeLeft += currentState.CurrentRound.TimeBoost;
+		if (currentState.TimeLeft > currentState.MaxTime) {
+			currentState.TimeLeft = currentState.MaxTime;
+		}
+		Debug.Log ("Time left new: " + currentState.TimeLeft+ " Added time: " + currentState.CurrentRound.TimeBoost);
 	}
 
 	public void VerifySequence(List<OrbController> sequence)
