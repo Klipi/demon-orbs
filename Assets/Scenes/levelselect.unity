@@ -169,7 +169,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 8, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1393294839}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &3168389
@@ -1213,6 +1214,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Number: 3
+--- !u!1 &1393294838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1393294839}
+  - 114: {fileID: 1393294840}
+  m_Layer: 0
+  m_Name: AudioSource
+  m_TagString: AudioPlayer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1393294839
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393294838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -8, z: -9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3168388}
+  m_RootOrder: 0
+--- !u!114 &1393294840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393294838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5267afd7d3ca4a4aa14e2009e82865f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSounds:
+  - {fileID: 8300000, guid: ce039f2d1c5974d48b50ce502327bcb2, type: 3}
+  - {fileID: 8300000, guid: c4a1fa1ac64b6432398adb5ec9ed8980, type: 3}
+  - {fileID: 8300000, guid: 1ec17ecdc3f3f4fdda06923892f07198, type: 3}
+  - {fileID: 8300000, guid: 410082bc506904b9d9a9267b9910d001, type: 3}
+  - {fileID: 8300000, guid: 51069f11ae3e14b6f8f95827d786d08c, type: 3}
+  - {fileID: 8300000, guid: 172681cbc8e0e4bb99546763404447a2, type: 3}
+  dragSound: {fileID: 8300000, guid: 563f02153969a4a3a9be8cc25a86f820, type: 3}
+  hitSounds:
+  - {fileID: 8300000, guid: ca8621b8d3eef4fbb8876e14f342593a, type: 3}
+  - {fileID: 8300000, guid: 239030978ffb74b6dabcc917abe257c4, type: 3}
+  - {fileID: 8300000, guid: 567fdad0d2b2a4218af60bccf0d4d463, type: 3}
+  - {fileID: 8300000, guid: 3b6566c7e019d4496a1d43ade91fe0d0, type: 3}
+  missSounds:
+  - {fileID: 8300000, guid: 9b25a2129a9034fad8e528f2ad59ea8f, type: 3}
+  - {fileID: 8300000, guid: a8b67e5bfb5fb4d94b950cf2e2c2b4ba, type: 3}
+  - {fileID: 8300000, guid: 70ebea1e5e96b46a484633fbc9167893, type: 3}
+  - {fileID: 8300000, guid: 1415db883958948208f67c696e479993, type: 3}
+  gameOverSound: {fileID: 8300000, guid: d2b58ec57fdc343e8825ffb09668cd50, type: 3}
+  winSound: {fileID: 8300000, guid: 370aa73805b564e218b2dfb8de9455d3, type: 3}
+  clickSounds:
+  - {fileID: 8300000, guid: 37e21b3c2a35b484388b1aa0fe102a5d, type: 3}
+  - {fileID: 8300000, guid: 68c830ef158c74500844274a56fd303c, type: 3}
+  - {fileID: 8300000, guid: 28b1c8278a6c14fa1b0f0d4dbe39c308, type: 3}
+  - {fileID: 8300000, guid: a1fcef4259a984f66a323f2d61c8c6c3, type: 3}
+  - {fileID: 8300000, guid: 44dc6996a800349d0996500e8b8ea2f0, type: 3}
 --- !u!1 &1402644382
 GameObject:
   m_ObjectHideFlags: 0

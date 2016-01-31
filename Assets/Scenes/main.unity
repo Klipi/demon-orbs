@@ -8401,6 +8401,7 @@ MonoBehaviour:
   dragonPrefab2: {fileID: 148974, guid: be0e5c7c732b1a84a8876ca4a6846e6a, type: 2}
   lizardPrefab1: {fileID: 160514, guid: 5780113367c158e46ac2115e873b5701, type: 2}
   lizardPrefab2: {fileID: 176270, guid: 06bd0041d15ccb941950197eea788327, type: 2}
+  paused: 0
 --- !u!1 &543332020
 GameObject:
   m_ObjectHideFlags: 0
@@ -27639,7 +27640,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a8b67e5bfb5fb4d94b950cf2e2c2b4ba, type: 3}
   - {fileID: 8300000, guid: 70ebea1e5e96b46a484633fbc9167893, type: 3}
   - {fileID: 8300000, guid: 1415db883958948208f67c696e479993, type: 3}
-  gameOverSound: {fileID: 8300000, guid: 3815a88fe0ea646239f64bb4db4df3e1, type: 3}
+  gameOverSound: {fileID: 8300000, guid: d2b58ec57fdc343e8825ffb09668cd50, type: 3}
   winSound: {fileID: 8300000, guid: 370aa73805b564e218b2dfb8de9455d3, type: 3}
 --- !u!1 &1725221561
 GameObject:
