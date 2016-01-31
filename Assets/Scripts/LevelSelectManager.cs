@@ -40,8 +40,11 @@ public class LevelSelectManager : MonoBehaviour {
     {
         m_camera = Camera.main;
         LevelSelectCamera cam = m_camera.GetComponent<LevelSelectCamera>();
-
         cam.setMinMaxY(cameraMinY, cameraMaxY);
+
+        Vector3 pos = m_camera.transform.position;
+        pos.y = Mathf.Clamp(levels[m_persistentData.MaxLevel].position.y, cameraMinY, cameraMaxY);
+        m_camera.transform.position = pos;
     }
 	
 	// Update is called once per frame
@@ -77,7 +80,9 @@ public class LevelSelectManager : MonoBehaviour {
                     {
                         m_persistentData.CurrentLevel = level;
 
-                        float waitTime = 2.0f;
+						AudioPlayer.Instance.PlaySound(SoundType.CLICK);
+
+						float waitTime = 0.2f;
                         StartCoroutine(ExitScene(waitTime));
                         
                     }

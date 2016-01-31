@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -53,6 +54,9 @@ public class LevelLogic : MonoBehaviour
 
 	public bool										paused			= false;
 
+    private GameObject winText;
+    private GameObject loseText;
+
 	void Awake()
 	{
 		if (_instance == null)
@@ -69,7 +73,10 @@ public class LevelLogic : MonoBehaviour
 	void Start () {
         DOTween.Init();
 		Initialize();
-
+        winText = GameObject.Find("GUI/YouWin");
+        loseText = GameObject.Find("GUI/YouLose");
+        winText.SetActive(false);
+        loseText.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -104,15 +111,16 @@ public class LevelLogic : MonoBehaviour
 				data.MaxLevel++;
 				Debug.Log(string.Format("New Max level {0}", data.MaxLevel));
 			}
-
+            winText.SetActive(true);
+            Image i = winText.GetComponent<Image>();
+            i.DOFade(255, 1.0f);
 
 		} else {
 			AudioPlayer.Instance.PlaySound (SoundType.GAME_OVER);
-
-            //DOTween.
-            
-
-		}
+            loseText.SetActive(true);
+            Image i = loseText.GetComponent<Image>();
+            i.DOFade(255, 1.0f);
+        }
 
 
         StartCoroutine(ExitScene());
@@ -120,7 +128,7 @@ public class LevelLogic : MonoBehaviour
 
     IEnumerator ExitScene()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene("levelselect", LoadSceneMode.Single);
     }
 
