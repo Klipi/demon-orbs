@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 public class LevelState
 {
+	public float MaxTime
+	{
+		get;
+		set;
+	}
+
 	public float TimeLeft
 	{
 		get;
@@ -38,6 +44,7 @@ public class LevelState
 
 	public LevelState(LevelConfig config)
 	{
+		MaxTime = config.Enemy.InitialTime;
 		TimeLeft = config.Enemy.InitialTime;
 		Enemy = config.Enemy;
 	}
