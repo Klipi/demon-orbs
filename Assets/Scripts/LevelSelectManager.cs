@@ -11,6 +11,7 @@ public class LevelSelectManager : MonoBehaviour {
 
     private PersistentData m_persistentData;
     private Camera m_camera;
+
     private int m_maxLevel
 	{
 		get {
@@ -70,8 +71,12 @@ public class LevelSelectManager : MonoBehaviour {
             {
                 if(hit.collider.gameObject.tag == "Level")
                 {
-                    m_persistentData.CurrentLevel = hit.collider.gameObject.GetComponent<LevelNode>().Number;
-                    SceneManager.LoadScene("main");
+                    int level = hit.collider.gameObject.GetComponent<LevelNode>().Number;
+                    if (m_persistentData.MaxLevel <= level)
+                    {
+                        m_persistentData.CurrentLevel = level;
+                        SceneManager.LoadScene("main");
+                    }
                 }
             }
         }
