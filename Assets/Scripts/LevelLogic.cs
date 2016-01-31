@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LevelLogic : MonoBehaviour 
 {
@@ -21,7 +22,19 @@ public class LevelLogic : MonoBehaviour
 	}
 
 	[SerializeField]
-	private GameObject								enemyPrefab;
+	private GameObject								defaultEnemyPrefab;
+
+	[SerializeField]
+	private GameObject								dragonPrefab1;
+
+	[SerializeField]
+	private GameObject								dragonPrefab2;
+
+	[SerializeField]
+	private GameObject 								lizardPrefab1;
+
+	[SerializeField]
+	private GameObject								lizardPrefab2;
 
 	private LevelState								currentState;
 
@@ -58,10 +71,31 @@ public class LevelLogic : MonoBehaviour
 		TimeHandler.Instance.SetRemainingTime(currentState.TimeLeft);
 		if (currentState.TimeLeft < 0f)
 		{
-			playing = false;
-			AudioPlayer.Instance.PlaySound(SoundType.GAME_OVER);
-			OrbSequenceController.Instance.StopRound();
+			GameOver (false);
 		}
+	}
+
+	void GameOver (bool won)
+	{
+		playing = false;
+		OrbSequenceController.Instance.StopRound ();
+
+
+		if (won) {
+			AudioPlayer.Instance.PlaySound(SoundType.WIN);
+			PersistentData data = GameObject.Find ("SceneEssentials").GetComponent<PersistentData> ();
+			if (data.CurrentLevel == data.MaxLevel) {
+				data.MaxLevel++;
+			}
+
+
+		} else {
+			AudioPlayer.Instance.PlaySound (SoundType.GAME_OVER);
+
+		}
+
+		SceneManager.LoadScene ("levelselect", LoadSceneMode.Single);
+
 	}
 
 	void SpawnEnemy()
@@ -73,21 +107,25 @@ public class LevelLogic : MonoBehaviour
 
 		EnemyConfig enemyToSpawn = currentState.Enemy;
 
-		currentEnemy = GameObject.Instantiate(enemyPrefab).GetComponent<EnemyController>();
 
 		switch (enemyToSpawn.Type)
 		{
 			case EnemyType.DRAGON:
 				Debug.Log("Spawning Dragon");
-				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_01");
+				currentEnemy = GameObject.Instantiate(dragonPrefab1).GetComponent<EnemyController>();
+//				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_01");
 				break;
 			case EnemyType.LIZARD:
 				Debug.Log("Spawning Lizard");
-				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_02");
+				currentEnemy = GameObject.Instantiate(lizardPrefab1).GetComponent<EnemyController>();
+
+//				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_02");
 				break;
 			case EnemyType.IMP:
 				Debug.Log("Spawning Imp Boss");
-				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/DemonBlob");
+				currentEnemy = GameObject.Instantiate(defaultEnemyPrefab).GetComponent<EnemyController>();
+
+//				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/DemonBlob");
 				break;
 			default:
 				Debug.LogWarning(string.Format("Couldn't find enemy type {0}", enemyToSpawn.Type));
@@ -112,11 +150,42 @@ public class LevelLogic : MonoBehaviour
 	{
 		currentState.AdvanceRound();
 		ScoreController.Instance.SetScore(currentState.Score, currentState.Enemy.Rounds.Count);
-		AudioPlayer.Instance.PlaySound(SoundType.WIN);
+		GameOver (true);
 	}
 
 	void Initialize()
 	{
+		int levelToLoad = GameObject.Find("SceneEssentials").GetComponent<PersistentData>().CurrentLevel;
+
+		LevelConfig newLevel;
+		switch (levelToLoad) {
+		case 0:
+			newLevel = LevelConfig.Level0;
+			break;
+		case 1:
+			newLevel = LevelConfig.Level1;
+			break;
+		case 2:
+			newLevel = LevelConfig.Level2;
+			break;
+		case 3:
+			newLevel = LevelConfig.Level3;
+			break;
+		case 4:
+			newLevel = LevelConfig.Level4;
+			break;
+		case 5:
+			newLevel = LevelConfig.Level5;
+			break;
+		case 6:
+			newLevel = LevelConfig.Level6;
+			break;
+		default:
+			newLevel = LevelConfig.DefaultConfig;
+			break;
+		
+
+		}
 		currentState = new LevelState(this.LevelConfig);
 		ScoreController.Instance.SetScore(currentState.Score, currentState.Enemy.Rounds.Count);
 

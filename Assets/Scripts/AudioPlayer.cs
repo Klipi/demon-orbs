@@ -57,10 +57,12 @@ public class AudioPlayer : MonoBehaviour {
 		if (_instance == null)
 		{
 			_instance = this;
+			DontDestroyOnLoad (this);
 		}
 		else
 		{
 			Debug.LogWarning("Multiple AudioPlayers present!");
+			Destroy (this);
 		}
 	}
 	

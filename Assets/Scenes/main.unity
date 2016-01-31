@@ -8396,7 +8396,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911cd2f8f6ee94a3f825d8429d6d1be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 145732, guid: d664c6dbe8fed4a3c8a18c26f377ecf7, type: 2}
+  defaultEnemyPrefab: {fileID: 145732, guid: d664c6dbe8fed4a3c8a18c26f377ecf7, type: 2}
+  dragonPrefab1: {fileID: 129278, guid: 3c7e640810fadd846aa986ae9449a883, type: 2}
+  dragonPrefab2: {fileID: 148974, guid: be0e5c7c732b1a84a8876ca4a6846e6a, type: 2}
+  lizardPrefab1: {fileID: 160514, guid: 5780113367c158e46ac2115e873b5701, type: 2}
+  lizardPrefab2: {fileID: 176270, guid: 06bd0041d15ccb941950197eea788327, type: 2}
 --- !u!1 &543332020
 GameObject:
   m_ObjectHideFlags: 0
