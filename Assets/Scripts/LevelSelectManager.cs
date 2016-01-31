@@ -11,7 +11,15 @@ public class LevelSelectManager : MonoBehaviour {
 
     private PersistentData m_persistentData;
     private Camera m_camera;
-    private int m_maxLevel;
+    private int m_maxLevel
+	{
+		get {
+			return m_persistentData.MaxLevel;
+		}
+		set {
+			m_persistentData.MaxLevel = value;
+		}
+	}
 
 	// Use this for initialization
 	void Start ()

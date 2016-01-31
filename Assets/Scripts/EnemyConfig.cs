@@ -37,8 +37,6 @@ public class EnemyConfig
 		{	
 			List<Round> rounds = new List<Round>();
 			rounds.Add(new Round(4f, 3));
-			rounds.Add(new Round(3f, 4));
-			rounds.Add(new Round(2f, 5));
 
 			EnemyConfig result = new EnemyConfig();
 			result.Type = EnemyType.DRAGON;

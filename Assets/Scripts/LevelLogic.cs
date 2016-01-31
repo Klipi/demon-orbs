@@ -84,8 +84,13 @@ public class LevelLogic : MonoBehaviour
 		if (won) {
 			AudioPlayer.Instance.PlaySound(SoundType.WIN);
 			PersistentData data = GameObject.Find ("SceneEssentials").GetComponent<PersistentData> ();
+
+			Debug.Log (string.Format("Won. Current level {0}, Max level {1}", data.CurrentLevel, data.MaxLevel));
+
 			if (data.CurrentLevel == data.MaxLevel) {
+				
 				data.MaxLevel++;
+				Debug.Log(string.Format("New Max level {0}", data.MaxLevel));
 			}
 
 
