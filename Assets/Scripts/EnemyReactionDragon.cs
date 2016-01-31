@@ -46,24 +46,27 @@ public class EnemyReactionDragon : MonoBehaviour {
         //transform.rotation = Quaternion.Euler(m_startRotation);
         transform.localScale = m_startScale;
 
-        Sequence jumpSeq = DOTween.Sequence();
-        jumpSeq.SetId("jump");
+
 
         //jumpSeq.Append(transform.DOMove(m_endPositionUp, 1.0f));
         //jumpSeq.Append(transform.DOJump(m_endPositionUp, 0.5f, 1, 1.0f));
-        jumpSeq.Append(transform.DOScaleX(0.12f, 1.0f));
-        jumpSeq.Join(transform.DOScaleY(0.15f, 1.0f));
-        
+        //jumpSeq.Append(transform.DOScaleX(0.12f, 0.5f));
+
+        //jumpSeq.Append(transform.DOScaleY(0.15f, 0.5f));
+
 
         //jumpSeq.Append(transform.DOMove(m_endPositionDown, 1.0f));
         //jumpSeq.Join(transform.DOScaleX(0.15f, 1.0f));
         //jumpSeq.Join(transform.DOScaleY(0.14f, 1.0f));
 
         //jumpSeq.Append(transform.DOMove(m_startPosition, 1.0f));
-        jumpSeq.Join(transform.DOScaleY(0.17f, 1.0f));
-        jumpSeq.Join(transform.DOScaleX(0.15f, 1.0f));
 
-        jumpSeq.SetLoops(-1, LoopType.Restart);
+        //jumpSeq.Join(transform.DOScaleX(0.15f, 1.0f));
+
+        Sequence jumpSeq = DOTween.Sequence();
+        jumpSeq.SetId("jump");
+        jumpSeq.Append(transform.DOScaleY(0.13f, 1.0f));
+        jumpSeq.SetLoops(-1, LoopType.Yoyo);
         DOTween.Play(jumpSeq);
     }
 
