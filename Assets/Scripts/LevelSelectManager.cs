@@ -77,7 +77,9 @@ public class LevelSelectManager : MonoBehaviour {
                     {
                         m_persistentData.CurrentLevel = level;
 
-                        float waitTime = 2.0f;
+						AudioPlayer.Instance.PlaySound(SoundType.CLICK);
+
+						float waitTime = 0.2f;
                         StartCoroutine(ExitScene(waitTime));
                         
                     }
