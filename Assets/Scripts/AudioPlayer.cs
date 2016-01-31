@@ -14,7 +14,9 @@ public enum SoundType
 
 	SELECT,
 
-	MISS
+	MISS,
+
+	CLICK
 }
 
 public class AudioPlayer : MonoBehaviour {
@@ -51,6 +53,9 @@ public class AudioPlayer : MonoBehaviour {
 
 	[SerializeField]
 	private AudioClip		winSound;
+
+	[SerializeField]
+	private AudioClip[]		clickSounds;
 
 	// Use this for initialization
 	void Awake () {
@@ -94,6 +99,8 @@ public class AudioPlayer : MonoBehaviour {
 				return gameOverSound;
 			case SoundType.WIN:
 				return winSound;
+			case SoundType.CLICK:
+				return SelectRandom (clickSounds);
 			default:
 				Debug.LogWarning(string.Format("No sound set for type {0}", type));
 				return new AudioClip();
