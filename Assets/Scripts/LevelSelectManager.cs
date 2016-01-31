@@ -72,11 +72,16 @@ public class LevelSelectManager : MonoBehaviour {
                 if(hit.collider.gameObject.tag == "Level")
                 {
                     int level = hit.collider.gameObject.GetComponent<LevelNode>().Number;
-                    if (m_persistentData.MaxLevel <= level)
+                    Debug.Log("Hit level " + level + ", max level " + m_persistentData.MaxLevel);
+                    if (m_persistentData.MaxLevel >= level)
                     {
                         m_persistentData.CurrentLevel = level;
                         SceneManager.LoadScene("main");
                     }
+                }
+                else
+                {
+                    Debug.Log("no hit!");
                 }
             }
         }
