@@ -83,11 +83,11 @@ public class LevelSelectCamera : MonoBehaviour {
     public void setMinMaxY(float min, float max)
     {
         m_minY = min;
-        m_hardMinY = m_minY - 1;
+        m_hardMinY = m_minY - 2;
         Debug.Log("Min y: " + m_minY + ", hardMinY: " + m_hardMinY);
 
         m_maxY = max;
-        m_hardMaxY = m_maxY + 1;
+        m_hardMaxY = m_maxY + 2;
         Debug.Log("Max y: " + m_maxY + ", hardMaxY: " + m_hardMaxY);
 
         m_initialized = true;

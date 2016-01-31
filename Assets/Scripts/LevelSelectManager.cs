@@ -72,18 +72,20 @@ public class LevelSelectManager : MonoBehaviour {
     void ColorizeLevelNodes()
     {
         DOTween.KillAll(true);
-        for (int i=0; i<levels.Length-1; i++)
+        for (int i=0; i < levels.Length; i++)
         {
             if(i <= m_maxLevel)
             {
                 levels[i].GetChild(0).gameObject.SetActive(true);
                 levels[i].GetChild(1).gameObject.SetActive(false);
+                levels[i].GetChild(2).gameObject.SetActive(false);
                 levels[i].DOScale(new Vector3(1, 1, 1), 0);    
             }
             else
             {
                 levels[i].GetChild(0).gameObject.SetActive(false);
                 levels[i].GetChild(1).gameObject.SetActive(true);
+                levels[i].GetChild(2).gameObject.SetActive(false);
 
                 Color tmp = levels[i].GetChild(1).gameObject.GetComponent<SpriteRenderer>().color;
                 tmp.a = 30f;
@@ -92,7 +94,7 @@ public class LevelSelectManager : MonoBehaviour {
             }
         }
 
-        Debug.Log("Current level is: " + m_maxLevel);
+        Debug.Log("Current max level is: " + m_maxLevel);
         levels[m_maxLevel].DOScale(new Vector3(1.5f, 1.5f, 0), 1).SetLoops(-1, LoopType.Yoyo);
     }
 
