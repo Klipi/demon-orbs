@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class LevelLogic : MonoBehaviour 
 {
@@ -36,7 +37,13 @@ public class LevelLogic : MonoBehaviour
 	[SerializeField]
 	private GameObject								lizardPrefab2;
 
-	private LevelState								currentState;
+    [SerializeField]
+    private GameObject                              bossPrefab1;
+
+    [SerializeField]
+    private GameObject                              bossPrefab2;
+
+    private LevelState								currentState;
 
 	public 	LevelConfig 							LevelConfig 	= LevelConfig.DefaultConfig;
 
@@ -60,7 +67,9 @@ public class LevelLogic : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
+        DOTween.Init();
 		Initialize();
+
 	}
 	
 	// Update is called once per frame
@@ -100,11 +109,20 @@ public class LevelLogic : MonoBehaviour
 		} else {
 			AudioPlayer.Instance.PlaySound (SoundType.GAME_OVER);
 
+            //DOTween.
+            
+
 		}
 
-		SceneManager.LoadScene ("levelselect", LoadSceneMode.Single);
 
+        StartCoroutine(ExitScene());
 	}
+
+    IEnumerator ExitScene()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("levelselect", LoadSceneMode.Single);
+    }
 
 	void SpawnEnemy()
 	{
@@ -121,19 +139,30 @@ public class LevelLogic : MonoBehaviour
 			case EnemyType.DRAGON:
 				Debug.Log("Spawning Dragon");
 				currentEnemy = GameObject.Instantiate(dragonPrefab1).GetComponent<EnemyController>();
-//				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_01");
 				break;
-			case EnemyType.LIZARD:
+            case EnemyType.DRAGON2:
+                Debug.Log("Spawning Dragon");
+                currentEnemy = GameObject.Instantiate(dragonPrefab1).GetComponent<EnemyController>();
+                break;
+            case EnemyType.LIZARD:
 				Debug.Log("Spawning Lizard");
 				currentEnemy = GameObject.Instantiate(lizardPrefab1).GetComponent<EnemyController>();
-
-//				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/monster_02");
 				break;
-			case EnemyType.IMP:
+            case EnemyType.LIZARD2:
+                Debug.Log("Spawning Lizard");
+                currentEnemy = GameObject.Instantiate(lizardPrefab1).GetComponent<EnemyController>();
+                 break;
+            case EnemyType.BOSS:
+                Debug.Log("Spawning Boss");
+                currentEnemy = GameObject.Instantiate(bossPrefab1).GetComponent<EnemyController>();
+                break;
+            case EnemyType.BOSS2:
+                Debug.Log("Spawning Boss");
+                currentEnemy = GameObject.Instantiate(bossPrefab1).GetComponent<EnemyController>();
+                break;
+            case EnemyType.IMP:
 				Debug.Log("Spawning Imp Boss");
 				currentEnemy = GameObject.Instantiate(defaultEnemyPrefab).GetComponent<EnemyController>();
-
-//				currentEnemy.GetComponent<SpriteRenderer>().sprite = Utils.LoadSprite("Enemies/DemonBlob");
 				break;
 			default:
 				Debug.LogWarning(string.Format("Couldn't find enemy type {0}", enemyToSpawn.Type));
