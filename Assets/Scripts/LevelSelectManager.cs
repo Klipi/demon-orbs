@@ -76,7 +76,10 @@ public class LevelSelectManager : MonoBehaviour {
                     if (m_persistentData.MaxLevel >= level)
                     {
                         m_persistentData.CurrentLevel = level;
-                        SceneManager.LoadScene("main");
+
+                        float waitTime = 2.0f;
+                        StartCoroutine(ExitScene(waitTime));
+                        
                     }
                 }
                 else
@@ -86,6 +89,12 @@ public class LevelSelectManager : MonoBehaviour {
             }
         }
 	}
+
+    IEnumerator ExitScene(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime); 
+        SceneManager.LoadScene("main");
+    }
 
     void ColorizeLevelNodes()
     {

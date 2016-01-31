@@ -69,6 +69,7 @@ public class LevelLogic : MonoBehaviour
 	void Start () {
         DOTween.Init();
 		Initialize();
+
 	}
 	
 	// Update is called once per frame
