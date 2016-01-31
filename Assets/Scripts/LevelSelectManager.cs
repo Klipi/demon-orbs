@@ -28,7 +28,7 @@ public class LevelSelectManager : MonoBehaviour {
 
         m_persistentData = GameObject.Find("SceneEssentials").GetComponent<PersistentData>();
         m_persistentData.Save();
-        m_maxLevel = m_persistentData.CurrentLevel;
+        m_maxLevel = m_persistentData.MaxLevel;
         Debug.Log("Max level at scene start: " + m_maxLevel);
 
         SetCamera();
