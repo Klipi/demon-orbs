@@ -11,6 +11,7 @@ public class SettingsButtonController : MonoBehaviour {
 
     private PersistentData persistentData;
 
+
 	void Start () {
         persistentData = GameObject.Find("SceneEssentials").GetComponent<PersistentData>();
 
@@ -26,6 +27,8 @@ public class SettingsButtonController : MonoBehaviour {
 		} else if (currentScene == SceneManager.GetSceneByName ("menu")) {
 			levelsButton.gameObject.SetActive (false);
 			menuButton.gameObject.SetActive (false);
+		} else if (currentScene == SceneManager.GetSceneByName ("main")){
+			LevelLogic.Instance.paused = true;
 		}
 	}
 		
@@ -58,6 +61,10 @@ public class SettingsButtonController : MonoBehaviour {
 	}
 
 	public void ClickClose () {
+		Scene currentScene = SceneManager.GetActiveScene ();
+		if (currentScene == SceneManager.GetSceneByName ("main")) {
+			LevelLogic.Instance.paused = false;
+		}
 		SceneManager.UnloadScene ("settings");
 	}
 }	
