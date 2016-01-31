@@ -33,6 +33,7 @@ public class SettingsButtonController : MonoBehaviour {
 	}
 		
 	public void ClickSound () {
+		AudioPlayer.Instance.PlaySound(SoundType.CLICK);
 		if (AudioListener.volume == 0) {
 			AudioListener.volume = 1;
 			soundOnText.text = "Sound: on";
@@ -43,24 +44,27 @@ public class SettingsButtonController : MonoBehaviour {
 	}
 
 	public void ClickReset () {
-		Debug.Log ("Reset clicked");
+		AudioPlayer.Instance.PlaySound(SoundType.CLICK);
         persistentData.Reset = true;
 	}
 
 	public void ClickUnlock () {
-		Debug.Log ("Unlock clicked");
+		AudioPlayer.Instance.PlaySound(SoundType.CLICK);
         persistentData.Unlock = true;
 	}
 
 	public void ClickLevels () {
+		AudioPlayer.Instance.PlaySound(SoundType.CLICK);
 		SceneManager.LoadScene ("levelselect");
 	}
 
 	public void ClickMenu () {
+		AudioPlayer.Instance.PlaySound(SoundType.CLICK);
 		SceneManager.LoadScene ("menu");
 	}
 
 	public void ClickClose () {
+		AudioPlayer.Instance.PlaySound(SoundType.CLICK);
 		Scene currentScene = SceneManager.GetActiveScene ();
 		if (currentScene == SceneManager.GetSceneByName ("main")) {
 			LevelLogic.Instance.paused = false;

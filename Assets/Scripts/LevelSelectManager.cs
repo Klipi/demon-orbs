@@ -79,7 +79,7 @@ public class LevelSelectManager : MonoBehaviour {
 
 						AudioPlayer.Instance.PlaySound(SoundType.CLICK);
 
-						float waitTime = 0.2f;
+						float waitTime = 0.0f;
                         StartCoroutine(ExitScene(waitTime));
                         
                     }
@@ -143,6 +143,7 @@ public class LevelSelectManager : MonoBehaviour {
 
     public void Settings()
     {
-        SceneManager.LoadScene("settings", LoadSceneMode.Additive);
+		AudioPlayer.Instance.PlaySound(SoundType.CLICK);
+		SceneManager.LoadScene("settings", LoadSceneMode.Additive);
     }
 }
